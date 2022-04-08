@@ -312,8 +312,8 @@ print(a,b,c,) #3 2 1   解包赋值
 #空字符串，None，0，0.0，空列表，空元组，空字典，空集合，空字符串，空文件，空类，空对象，空函数，空闭包，空类型，空模块，空类型，空元组，空字典，空集合，空字符串，空文件，空类，空对象，空函数，空闭包，空类型，空模块，空类型，空元组，空字典，空集合，空字符串，空文件，空类，空对象，空函数，空闭包，空类型，空模块，空类型，空元组，空字典，空集合，空字符串，空文件，空类，空对象
 print (bool(''))
 print (bool(None))
-print (bool(0))
-print (bool(0.0))
+print (bool(0))  
+print (bool(0.0))  
 print (bool([]))#空列表
 print (bool(())) #空元组
 print (bool({})) #空字典
@@ -372,5 +372,43 @@ mydict=dict1.copy()
 mydict.update(dict2)
 print (mydict) #{'age': 20, 'name': '王五'}
 #字典的更新 dict1.update(dict2,dict3,dict4,dict5,dict6,dict7,dict8,dict9,dict10,dict11,dict12,dict13,dict14,dict15,dict16,dict17,dict18,dict19,dict20,dict21,dict22,dict23)
+
+
+#判断字典是否为空
+dict1={'name':'张三','age':18,}
+if dict1:
+    print ('字典不为空')
+else:
+    print ('字典为空')  
+#字典的键值对
+dict1={'name':'张三','age':18,}
+print (dict1.items()) #dict_items([('age', 18), ('name', '张三')])  
+print (dict1.keys()) #dict_keys(['age', 'name'])    
+print (dict1.values()) #dict_values([18, '张三'])
+#判断dict1中是否包含key
+dict1={'name':'张三','age':18,} 
+if 'name' in dict1:
+    print ('字典中包含name')
+else:
+    print ('字典中不包含name')
+#判断dict1中是否包含value
+dict1={'name':'张三','age':18,}
+if '张三' in dict1.values():
+    print ('字典中包含张三')
+else:
+    print ('字典中不包含张三')
+#判断dict1中是否包含key和value
+dict1={'name':'张三','age':18,}
+if ('name','张三') in dict1.items():
+    print ('字典中包含name和张三')
+else:
+    print ('字典中不包含name和张三')
+#判断奇数偶数
+dict1={'name':'张三','age':18,}
+if dict1['age']%2==0:
+    print ('字典中的age是偶数')
+else:
+    print ('字典中的age是奇数')
+    
 
 
