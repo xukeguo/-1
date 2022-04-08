@@ -4,7 +4,7 @@ print('取款')
 s=int(input('请输入取款金额：'))  #取款金额
 if s>monry: #如果取款金额大于账户余额
     print('余额不足')   #余额不足
-else:
+else:#分支  如果取款金额小于账户余额
     monry=monry-s #账户余额减去取款金额
     print('取款成功，余额为：',monry) #取款成功，输出余额
     存款
