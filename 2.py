@@ -437,7 +437,9 @@ print (score) #('age', 'name')
 dict1={'name':'张三','age':18,}
 #提取字典中的value
 dict1={'name':'张三','age':18,}
-score= (dict1.values()) #dict_values([18, '张三'])
+score= (dict1.values()) #dict_values([18, '张三'])         #提取字典中的一个value用作变量？      
+ 
+
 
 
 
