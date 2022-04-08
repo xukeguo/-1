@@ -127,6 +127,21 @@ else:
         print('黑名单') #黑名单
     else: #不是黑名单
         print('白名单') #白名单
-
-    
-    
+#比较大小
+num_a=int(input('请输入第一个数字：'))
+num_b=int(input('请输入第二个数字：'))
+'''if num_a>num_b:
+    print('第一个数字大')
+elif num-a<num-b:
+    print('第二个数字大')
+else:
+    print('两个数字相等')
+print('程序结束')'''
+#比较大小
+num_a=int(input('请输入第一个数字：'))
+num_b=int(input('请输入第二个数字：'))
+print('第一个数字大' if num_a>num_b else '两个数字相等' if num_a==num_b else '第二个数字大')
+print (num_a>num_b and '第一个数字大' or num_a==num_b and '两个数字相等' or '第二个数字大')
+print ((num_a,'>',num_b) if num_a>num_b else (num_a,'=',num_b) if num_a==num_b else (num_a,'<',num_b))
+print (str(num_a)+'>'+str(num_b) if num_a>num_b else (num_a,'=',num_b) if num_a==num_b else (num_a,'<',num_b))
+print (num_a>num_b and str(num_a)+'>'+str(num_b) or num_a==num_b and str(num_a)+'='+str(num_b) or '第二个数字大')
