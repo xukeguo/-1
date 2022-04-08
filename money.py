@@ -34,4 +34,50 @@ else:#分支  如果取款金额小于账户余额
 #   monry=monry-s #账户余额减去取款金额
 #  print('取款成功，余额为：',monry) #取款成功，输出余额
 #  #取款
-#     
+#     多分支if-else
+score=int(input('请输入分数：'))
+if score>=90:
+    print('优秀')
+elif score>=80:
+    print('良好')  
+elif score>=70:
+    print('中等')
+elif score>=60:
+    print('及格')
+else:  
+    print('不及格')
+         
+#     多分支if-else
+score=int(input('请输入成绩：'))
+if score>=90 and score<=100:
+    print('优秀')
+elif score>=80 and score<=89:
+    print('良好')
+elif score>=70 and score<=79:
+    print('中等')
+elif score>=60 and score<=69:
+    print('及格')
+elif score>=0 and score<=59:
+    print( '不及格')
+else:
+    print('输入错误')
+    #     多分支if-else
+score=int(input('请输入成绩：'))
+if 90<=score>=100:
+    print('优秀')
+elif 80<=score>=89:
+    print('良好')
+elif 70<=score>=79:
+    print('中等')
+elif 60<=score>=69:
+    print('及格')
+elif 0<=score>=59:
+    print('不及格')
+else:
+    print('输入错误')
+    #     多分支if-else
+    
+
+ 
+
+

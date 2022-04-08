@@ -409,6 +409,38 @@ if dict1['age']%2==0:
     print ('字典中的age是偶数')
 else:
     print ('字典中的age是奇数')
-    
+    #判断key是否匹配
+dict1={'name':'张三','age':18,}
+if dict1.keys()==('name','age'):
+    print ('字典中的key是name和age')
+else:
+    print ('字典中的key不是name和age')
+#判断value是否匹配
+dict1={'name':'张三','age':18,}
+if dict1.values()==('张三',18):
+    print (dict1.values()) #('张三', 18)
+dict1={'name':'张三','age':18,}
+if dict1['name']=='张三':
+        print ('字典中的value是name和张三')
+else:
+        print ('字典中的value不是name和张三')
+#字典的排序
+dict1={'name':'张三','age':18,}
+print (sorted(dict1)) #['age', 'name']
+print (sorted(dict1.items())) #[('age', 18), ('name', '张三')]
+
+ #提取字典中的key
+dict1={'name':'张三','age':18,}
+score= (dict1.keys()) #dict_keys(['age', 'name'])
+print (score) #('age', 'name')
+#提取字典中的一个key用作变量？
+dict1={'name':'张三','age':18,}
+#提取字典中的value
+dict1={'name':'张三','age':18,}
+score= (dict1.values()) #dict_values([18, '张三'])
+
+
+
+
 
 
