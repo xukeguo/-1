@@ -117,9 +117,9 @@ print(chr(0x789ad))
 # a = open("/Users/xuekguo/Documents/test.txt", "a+")
 # 打开百度网页
 
-d = open("http:\\\\www.baidu.com", "a+")
-print("http:\\\\www.baidu.com", file=d)
-d.close()
+#d = open("http:\\\\www.baidu.com", "a+")
+#print("http:\\\\www.baidu.com", file=d)
+#d.close()
 
 # 数据类型-字符串
 str1 = "hello world"  # 单个引号相当于单行文本
@@ -326,3 +326,51 @@ print (bool(dict())) #空字典
 print (bool('')) #空字符串
 #以下对象的布尔值为True：
 #非空字符串，非None，非0，非0.0，非空列表，非空元组，非空字典，非空集合，非空字符串，非空文件，非空类，非空对象，非空函数，非空闭包，非空类型，非空模块，非空类型，非空元组，非空字典，非空集合，非空字符串，非空文件，非空类，非空对象，非空函数，非空闭包，非空类型，非空模块，非空类型，非空元组，非空字典，非空集合，非空字符串，非空文件，非空类，非空对象，非空函数，非空
+#字典的定义
+dict1={'name':'张三','age':18,}
+print (dict1) #{'name': '张三', 'age': 18}
+dict1['name']='李四' #修改
+print (dict1) #{'name': '李四', 'age': 18}
+#字典的删除
+del dict1['name']
+print (dict1) #{'age': 18}
+#字典的遍历
+dict1={'name':'张三','age':18,}
+for key in dict1:
+    print (key) #name age
+for key in dict1:
+    print (dict1[key]) #张三 18
+for key in dict1:
+    print (key,dict1[key]) #name 张三 age 18
+#字典的排序
+dict1={'name':'张三','age':18,}
+print (sorted(dict1)) #['age', 'name']
+print (sorted(dict1.items())) #[('age', 18), ('name', '张三')]
+print (sorted(dict1.values())) #['张三', 18]
+#字典的拷贝
+dict1={'name':'张三','age':18,}
+dict2=dict1.copy()
+print (dict2) #{'age': 18, 'name': '张三'}
+#字典的添加  
+dict1={'name':'张三','age':18,}
+dict1[' 地址 ']=' 湖南 ' #字典的添加  
+print (dict1) # {'age': 18, 'name': '张三', ' 地址 ': ' 湖南 '}
+#组合字典示例
+  
+dict1={'name':'张三','age':18,}
+dict2={'name':'李四','age':19,} 
+#字典的更新 dict1.update(dict2)
+dict1={'name':'张三','age':18,}
+dict2={'name':'李四','age':19,}
+dic1.update(dic2)
+print (dic2) #{'age': 19, 'name': '李四'}
+#字典的更新 dict1.update(dict2,dict3,dict4,dict5,dict6,dict7,dict8,dict9,dict10,dict11,dict12,dict13,dict14,dict15,dict16,dict17,dict18,dict19,dict20,dict21,dict22,dict23)
+dict1={'name':'张三','age':18,}
+dict2={'name':'李四','age':19,}
+dict3={'name':'王五','age':20,}
+mydict=dict1.copy()
+mydict.update(dict2)
+print (mydict) #{'age': 20, 'name': '王五'}
+#字典的更新 dict1.update(dict2,dict3,dict4,dict5,dict6,dict7,dict8,dict9,dict10,dict11,dict12,dict13,dict14,dict15,dict16,dict17,dict18,dict19,dict20,dict21,dict22,dict23)
+
+
