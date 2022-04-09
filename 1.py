@@ -135,8 +135,12 @@ for i in range(100,1000):
 
 #打印水仙花数
 #九九乘法表
+for i in range(1,10):
+    for j in range(1,i+1):
+        print(i,'*',j,'=',i*j,end='\t')
+    print()#换行
 #1到1000的质数
-for i in range(2,1000):
+for i in range(2,10000):
     for j in range(2,i):
         if i%j==0:
             break #跳出循环
@@ -146,13 +150,13 @@ for i in range(2,1000):
 #打印1到100的偶数
 for i in range(1,100):
     if i%2!=0:
-        continue
+        pass   
     else:
         print(i)
 #打印1到100的奇数
 for i in range(1,100):
     if i%2==0:
-        continue
+        continue#跳出本次循环
     else:
         print(i)
 
