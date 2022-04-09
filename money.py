@@ -44,8 +44,9 @@ elif score>=70:
     print('中等')
 elif score>=60:
     print('及格')
-else:  
+else:
     print('不及格')
+
          
 #     多分支if-else
 score=int(input('请输入成绩：'))
@@ -142,6 +143,6 @@ num_a=int(input('请输入第一个数字：'))
 num_b=int(input('请输入第二个数字：'))
 print('第一个数字大' if num_a>num_b else '两个数字相等' if num_a==num_b else '第二个数字大')
 print (num_a>num_b and '第一个数字大' or num_a==num_b and '两个数字相等' or '第二个数字大')
-print ((num_a,'>',num_b) if num_a>num_b else (num_a,'=',num_b) if num_a==num_b else (num_a,'<',num_b))
+print ((num_a,'>',num_b) if num_a>num_b else  (num_a,'=',num_b) if num_a==num_b else (num_a,'<',num_b))
 print (str(num_a)+'>'+str(num_b) if num_a>num_b else (num_a,'=',num_b) if num_a==num_b else (num_a,'<',num_b))
 print (num_a>num_b and str(num_a)+'>'+str(num_b) or num_a==num_b and str(num_a)+'='+str(num_b) or '第二个数字大')

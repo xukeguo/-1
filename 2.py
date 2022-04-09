@@ -38,7 +38,9 @@ print('八进制', 0o755)     # 八进制
 print('二进制', 0b10101111)            # 二进制
 print('十六进制', 0x789ad)    # 十六进制
 # 求随机数
-import random
+import random  
+    
+ 
 
 print(0)
 print(random.randint(0, 10))
@@ -90,8 +92,8 @@ print(ord('徐'))
 # 转义字符
 print(chr(0x789ad))
 # 导入
-# import keyword
-# print(keyword.kwlist)
+import keyword
+print(keyword.kwlist)
 # name = "科国"
 # print(name)
 # print('标识', id(name))
@@ -336,10 +338,10 @@ del dict1['name']
 print (dict1) #{'age': 18}
 #字典的遍历
 dict1={'name':'张三','age':18,}
-for key in dict1:
+for key in dict1:#遍历字典的键
     print (key) #name age
-for key in dict1:
-    print (dict1[key]) #张三 18
+for k in dict1:
+    print (dict1[k]) #张三 18
 for key in dict1:
     print (key,dict1[key]) #name 张三 age 18
 #字典的排序
