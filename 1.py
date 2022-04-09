@@ -126,7 +126,7 @@ for i in range(1,10):
         print(i,'*',j,'=',i*j,end='\t')
     print()
 #打印水仙花数
-for i in range(100,1000):
+for i in range(100,1000,1):#初始为100，终止为1000，步长为1
     a=i//100 #取百位数
     b=i%100//10#//取整除法（i//10%10）
     c=i%10  #取个位数
@@ -159,7 +159,27 @@ for i in range(1,100):
         continue#跳出本次循环
     else:
         print(i)
+#for 循环 列表 元组 字典 字符串 其他 
+#for循环
+for i in [1,2,3,4,5]:#列表
+    print(i)
 
+#for循环元组
+for i in (1,2,3,4,5):#元组
+    print(i ,end="\t")
+
+#for循环字典
+for i in {'name':'zhangsan','age':18}:#字典
+    print(i)
+    #for循环字符串
+for i in "hello":#字符串
+    print(i)
+#for循环其他
+for i in range(1,10):
+    print(i)
+    
+
+     
 
 
 
