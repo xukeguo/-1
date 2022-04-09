@@ -112,10 +112,49 @@ while i<50:
     
         i+=1
 print(sum6)  #2500
+#for循环
+for _ in range(1,10):
+    print("hello")
+for i in 'hello':
+    print(i,end="\t")
+#for循环
+for i in [1,2,3,4,5]:
+    print(i)
+#打印九九乘法表
+for i in range(1,10):
+    for j in range(1,i+1):
+        print(i,'*',j,'=',i*j,end='\t')
+    print()
+#打印水仙花数
+for i in range(100,1000):
+    a=i//100 #取百位数
+    b=i%100//10#//取整除法（i//10%10）
+    c=i%10  #取个位数
+    if i==a**3+b**3+c**3:
+        print(i)
 
+#打印水仙花数
+#九九乘法表
+#1到1000的质数
+for i in range(2,1000):
+    for j in range(2,i):
+        if i%j==0:
+            break #跳出循环
+    else:
+        print(i)
 
-
-
+#打印1到100的偶数
+for i in range(1,100):
+    if i%2!=0:
+        continue
+    else:
+        print(i)
+#打印1到100的奇数
+for i in range(1,100):
+    if i%2==0:
+        continue
+    else:
+        print(i)
 
 
 
