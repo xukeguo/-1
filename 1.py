@@ -269,6 +269,118 @@ sum=0
 for i in dict:
   sum+=i
 print(sum)
+#三次输入密码，如果密码正确，则输出“登录成功”，如果密码错误，则输出“密码错误”，如果密码错误超过三次，则输出“账户锁定”
+pwb = input("请输入密码：")
+for i in range(3):
+    if pwb == "123456":
+        print("登录成功")
+        break
+    elif i == 2:
+        print("账户锁定")
+    else:
+        print("密码错误")
+        pwb = input("请输入密码：")
+print("账户锁定")
+#三 次输入密码，如果密码正确，则输出“登录成功”，如果密码错误，则输出“密码错误”，如果密码错误超过三次，则输出“账户锁定”
+pwb = input("请输入密码：")
+for i in range(3):  
+    if pwb == "123456":
+        print("登录成功")
+        break
+    else:
+        print("密码错误")
+        pwb = input("请输入密码：")                          
+print("账户锁定")
+#1到50中5的倍数的和
+sum=0
+for i in range(1,51):
+    if i%5==0:
+        sum+=i
+print(sum)
+#1到50中5的倍数的和
+sum=0
+for i in range(1,51):
+    if i%5!=0:
+        continue#结束本次循环
+    else:
+        sum+=i
+print(sum)
+#三次输入密码，如果密码正确，则输出“登录成功”，如果密码错误，则输出“密码错误”，如果密码错误超过三次，则输出“账户锁定”
+pwb = input("请输入密码：")
+for i in range(3):
+    if pwb == "123456":
+        print("登录成功")
+        break#跳出循环
+    else:
+        print("密码错误")
+        pwb = input("请输入密码：")
+        
+else:
+    print("账户锁定")   
+
+    
+#创建一个字典，存储学生信息，包括姓名、年龄、成绩，并且要求每个学生的信息都不能重复。
+dict={}
+while True:
+    name = input("请输入姓名：")
+    age = int(input("请输入年龄："))
+    score = int(input("请输入成绩："))
+    dict[name]=[age,score]
+    inpu = input("是否继续（y/n）：")
+    if inpu == "n":
+        break
+print(dict)
+#创建列表
+list1 = [1,2,3,4,5,6,7,8,9,10]
+list2 = list([1,2,3,4,5,6,7,8,9,10])
+list3 = list(range(1,11))
+print(list1)
+print(list2)
+print(list3[0:5])#切片
+print(list3[-5:])#索引
+print(list3[::2])#步长
+print(list3[::-1])#倒序
+print(list3[::-2])#倒序
+print(list3[::-3])#倒序
+print(list3[::-4])#倒序
+print(list3[::-5])#倒序
+print(list3[::-6])#倒序
+print(list3[::-7])#倒序
+print(list3.index(3))#索引
+print(list3.count(3))#统计
+list3.append(11)#追加
+list3.insert(0,15)#插入
+list3.extend([11,22,33])#扩展
+print(list3)
+list3.remove(11)#删除
+#list3.pop()#删除
+##list3.pop(0)#删除
+#list3.clear()#清空
+list3.reverse()#反转
+print(list3)
+list3.sort()#排序
+print(list3)
+list3.sort(reverse=True)#倒序
+print(list3)
+list3.sort(reverse=True)#排序
+list3.sort(reverse=False)#排序
+list3.sort(key=None,reverse=True)#排序
+list3.sort(key=None,reverse=False)#排序
+#移除列表中的重复元素
+list3.remove(11)
+list3.remove(11)#删除
+list3.pop(0)#删除
+del list3[0]#删除
+list3.clear()#清空
+list3.reverse()#反转
+
+
+
+
+
+
+
+
 
       
 

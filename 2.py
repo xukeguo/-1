@@ -374,7 +374,13 @@ mydict=dict1.copy()
 mydict.update(dict2)
 print (mydict) #{'age': 20, 'name': '王五'}
 #字典的更新 dict1.update(dict2,dict3,dict4,dict5,dict6,dict7,dict8,dict9,dict10,dict11,dict12,dict13,dict14,dict15,dict16,dict17,dict18,dict19,dict20,dict21,dict22,dict23)
-
+dict1={'name':'张三','age':18,}
+dict2={'name':'李四','age':19,}
+dict3={'name':'王五','age':20,}
+mydict=dict1.copy()
+mydict.update(dict2,dict3)
+print (mydict) #{'age': 20, 'name': '王五'}
+#字典的添加
 
 #判断字典是否为空
 dict1={'name':'张三','age':18,}
@@ -439,7 +445,8 @@ print (score) #('age', 'name')
 dict1={'name':'张三','age':18,}
 #提取字典中的value
 dict1={'name':'张三','age':18,}
-score= (dict1.values()) #dict_values([18, '张三'])         #提取字典中的一个value用作变量？ 
+score= (dict1.values()) #dict_values([18, '张三'])         #提取字典中的一个value用作变量？
+
 
 
 
