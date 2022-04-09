@@ -338,10 +338,10 @@ del dict1['name']
 print (dict1) #{'age': 18}
 #字典的遍历
 dict1={'name':'张三','age':18,}
-for key in dict1:
+for key in dict1:#遍历字典的键
     print (key) #name age
-for key in dict1:
-    print (dict1[key]) #张三 18
+for k in dict1:
+    print (dict1[k]) #张三 18
 for key in dict1:
     print (key,dict1[key]) #name 张三 age 18
 #字典的排序

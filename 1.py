@@ -140,12 +140,13 @@ for i in range(1,10):
         print(i,'*',j,'=',i*j,end='\t')
     print()#换行
 #1到1000的质数
-for i in range(2,10000):
+for i in range(2,1000):
     for j in range(2,i):
         if i%j==0:
             break #跳出循环
     else:
         print(i)
+    print("good")
 
 #打印1到100的偶数
 for i in range(1,100):
