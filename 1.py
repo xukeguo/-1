@@ -84,9 +84,34 @@ for i in range(1,101,2):
 print(sum2)  #2500
 sum3=sum1+sum2
 print(sum3)  #5050
+#累加偶数
+i=0   #初始化循环变量
+sum4=0  #初始化工作变量
+while i<101:     #循环条件
+ if i%2==0: #i%2!=0 求奇数
+  sum4+=i   #sum4=sum4+i
+ i+=1
+print(sum4)  #2550
+#累加偶数
+i=0
+sum5=0
+while i<101:
+ if not bool(i%2!=0): #bool()函数，返回值为True或False 不加not取反,求奇数
+  sum5+=i
+ else:
+  pass
+ i+=1
+print(sum5)  #2550
+ #累加奇数
+i=0
+sum6=0
+while i<50:
 
-
-
+        sum6+=i*2+1 #sum6=sum6+i*2 求偶数
+    
+    
+        i+=1
+print(sum6)  #2500
 
 
 
