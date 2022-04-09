@@ -38,7 +38,9 @@ print('八进制', 0o755)     # 八进制
 print('二进制', 0b10101111)            # 二进制
 print('十六进制', 0x789ad)    # 十六进制
 # 求随机数
-import random
+import random  
+    
+ 
 
 print(0)
 print(random.randint(0, 10))
@@ -90,8 +92,8 @@ print(ord('徐'))
 # 转义字符
 print(chr(0x789ad))
 # 导入
-# import keyword
-# print(keyword.kwlist)
+import keyword
+print(keyword.kwlist)
 # name = "科国"
 # print(name)
 # print('标识', id(name))
