@@ -145,7 +145,7 @@ for i in range(2,1000):
         if i%j==0:
             break #跳出循环
     else:
-        print(i)
+       print(i)
     print("good")
 
 #打印1到100的偶数
@@ -179,8 +179,99 @@ for i in "hello":#字符串
 for i in range(1,10):
     print(i)
     
+#1到100的质数的个数
+sum=0
+for i in range(2,100):
+    for j in range(2,i):
+        if i%j==0:
+            break
+    else:
+        sum+=1  
+print(sum)
 
-     
+# 解锁
+# 判断用户输入的密码是否正确
+# 如果正确，则输出“登录成功”
+# 如果不正确，则输出“密码错误”
+# 如果用户输入的密码错误超过三次，则输出“账户锁定”
+# 如果用户输入的密码正确，则输出“登录成功”
+inpu = input("请输入密码：")
+if inpu == "123456":
+    print("登录成功")
+else:
+    print("密码错误")
+    inpu = input("请输入密码：")
+    if inpu == "123456":
+        print("登录成功")
+    else:
+        print("密码错误")
+        inpu = input("请输入密码：")
+        if inpu == "123456":
+            print("登录成功")
+        else:
+            print("密码错误")
+            inpu = input("请输入密码：")
+            if inpu == "123456":
+                print("登录成功")
+            else:
+                print("密码错误")
+                inpu = input("请输入密码：")
+                if inpu == "123456":
+                    print("登录成功")
+                else:
+                    print("密码错误")
+                    inpu = input("请输入密码：")
+                    if inpu == "123456":
+                        print("登录成功")
+                    else:
+                        print("密码错误")
+                        inpu = input("请输入密码：")
+                        if inpu == "123456":
+                            print("登录成功")
+                        else:
+                            print("密码错误")
+                            inpu = input("请输入密码：")
+                            if inpu == "123456":
+                                print("登录成功")
+                            else:
+                                print("密码错误")
+                                inpu = input("请输入")
+      
+#1.编写程序，输入一个数字，判断这个数字是否是素数（质数）。
+inpu = int(input("请输入一个数字："))
+for i in range(2,inpu):
+    if inpu%i==0:
+        print("不是素数")
+        break
+    else:
+     print("是素数")
+#包含1到100的质数的集合
+dict={}
+for i in range(2,100):
+    for j in range(2,i):
+        if i%j==0:
+            break
+    else:
+        ge = i#获取质数
+        dict[ge]=ge
+print(dict)
+#1到100的质数的和
+sum=0
+for i in range(2,100):
+    for j in range(2,i):
+        if i%j==0:
+            break
+    else:
+        sum+=i
+print(sum)
+#1到100的质数的和
+sum=0
+for i in dict:
+  sum+=i
+print(sum)
+
+      
+
 
 
 
