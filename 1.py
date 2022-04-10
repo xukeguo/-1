@@ -406,6 +406,25 @@ list3.pop(0)#删除
 del list3[0]#删除
 list3.clear()#清空
 list3.reverse()#反转
+#将字符串中的小写字母转换成大写字母
+str1 = "abcdefg"
+str2 = str1.upper()
+
+#格式化 花名册     证明                 
+name=input(' 请输入姓名：')
+age=int(input(' 请输入年龄：'))
+score=int(input(' 请输入成绩：'))
+print('%s的年龄是%d,成绩是%d'%(name,age,score))
+print('{}的年龄是{},成绩是{}'.format(name,age,score))
+print('{0}的年龄是{1},成绩是{2}'.format(name,age,score))
+print('{name}的年龄是{age},成绩是{score}'.format(name=name,age=age,score=score))
+print(f'{name}的年龄是{age},成绩是{score}')
+print('{0}的年龄是{1},成绩是{2}'.format(name,age,score))
+print('{0:<10}的年龄是{1:<10},成绩是{2:<10}'.format(name,age,score))
+print('{0:>10}的年龄是{1:>10},成绩是{2:>10}'.format(name,age,score))
+print('{0:^20}的年龄是{1:^20},成绩是{2:^20}'.format(name,age,score))
+ 
+
 
 
 

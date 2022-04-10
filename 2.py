@@ -501,9 +501,6 @@ print(type(dict1)) #<class 'dict'>
 print (dict1)
 print (dict2)
 #元组的生成式
-tu= (x for x in range(10))
-print (type(tu)) #<class 'generator'>
-print (tu)
 t=('iii','jjj','fff')
 print (type(t)) #<class 'tuple'>
 t1=tuple(t)
@@ -515,9 +512,11 @@ print (t1)
 set1={x for x in range(10)}
 print (type(set1)) #<class 'set'>
 print (set1)
-#集合的生成式
+#集合的生成
 set1={2,3,4,5,6,7,8,9,10}
 set2=set(range(10))
+set3={x for x in range(10) if x%2==0}
+set4={x for x in range(10) if x%2!=0}#集合的生成式
 print (type(set2)) #<class 'set'>
 #集合的交集
 print (set1 & set2) #{2, 3, 4, 5, 6, 7, 8, 9}
@@ -525,12 +524,13 @@ print (set1 & set2) #{2, 3, 4, 5, 6, 7, 8, 9}
 print (set1 | set2) #{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 #集合的差集
 print (set1 - set2) #{0, 1}
+print (set2 - set1) #{10}
 #集合的对称差集
 print (set1 ^ set2) #{0, 1, 10}
 #集合的子集
-print (set1 <= set2) #True
+print (set1 <= set2) #false
 #集合的超集
-print (set1 >= set2) #True
+print (set1 >= set2) #false
 #集合的子集
 print (set1 < set2) #False
 #集合的超集
@@ -552,6 +552,134 @@ print (set1) #{3, 4, 5, 6, 7, 8, 9, 10}
 set1.pop()#随机移除一个元素
 set1.clear()#清空集合
 set1.difference_update([1,2,3])#把集合中的元素从另一个集合中移除
+set1.isdisjoint(set2)#判断两个集合是否有交集
+set1.issubset(set2)#判断一个集合是否是另一个集合的子集
+set1.issuperset(set2)#判断一个集合是否是另一个集合的超集
+set1.union(set2)#求两个集合的并集
+set1.intersection(set2)#求两个集合的交集
+set1.symmetric_difference(set2)#求两个集合的对称差集
+set1.difference(set2)#求两个集合的差集
+set1.copy()#拷贝一个集合
+set1.update([1,2,3])#添加多个元素
+print (set1.issubset( set2)  ) #True
+set1.remove(1)#移除一个元素
+set1.discard(1)#移除一个元素，如果不存在，不会报错  
+set1.pop()#随机移除一个元素
+set1.clear()#清空集合
+#字符串的生成式
+str1='abc|defg'# 字符串的生成式
+str2 = ''.join(['a','b','c'])#连接字符串
+print (str2)
+print (str1)
+#字符串的添加
+str1='abc'
+str1+='def'
+print (str1)
+#字符串的删除    方法为切片
+str1='abcdef'
+str1=str1[2:-3]#删除第三个到倒数第三个字符
+print (str1)
+   
+str1='abcdef王王g'
+str1 
+print (str1)
+str1.index( c) #查找字符串中第一次出现的字符c的索引
+str1.count(c) #查找字符串中出现的字符c的个数
+str1.find(c) #查找字符串中第一次出现的字符c的索引
+str1.rfind(c) #查找字符串中最后一次出现的字符c的索引
+str1.startswith(c) #判断字符串是否以c开头   false
+str1.endswith(c) #判断字符串是否以c结尾   false
+str1.isalnum() #判断字符串是否由字母和数字组成   false
+str1.isalpha() #判断字符串是否由字母组成   true
+str1.upper() #将字符串中的小写字母转换成大写字母
+str1.lower() #将字符串中的大写字母转换成小写字母
+str1.capitalize() #将字符串的第一个字母转换成大写字母
+str1.title() #将字符串中每个单词的第一个字母转换成大写字母
+str1.swapcase() #将字符串中的大写字母转换成小写字母，小写字母转换成大写字母
+str1.strip() #删除字符串首尾的空格
+str1.lstrip() #删除字符串左边的空格
+str1.rstrip() #删除字符串右边的空格
+str1.replace(old,new) #将字符串中的old字符串替换成new字符串
+str1.split(sep='|',maxsplit=1) #将字符串按照c字符串进行分割，返回一个列表
+str1.join(str2) #将字符串str2中的每个元素替换成str1
+print (str1.split(sep='|',maxsplit=1)) #['abc', 'defg']
+print (str1.join(str2)) #abc|defg
+print(str2)#abc|defg
+str1.join(list) #将list中的每个元素替换成str1
+str1.encode(encoding='utf-8',errors='strict') #将字符串转换成字节码
+str1.decode(encoding='utf-8',errors='strict') #将字节码转换成字符串
+str1.format(a,b,c) #格式化字符串
+str1.zfill(width) #将字符串填充为指定长度，不足的在左边填充0
+str1.center(width) #将字符串填充为指定长度，不足的在中间填充空格
+str1.ljust(width) #将字符串填充为指定长度，不足的在左边填充空格
+str1.rjust(width) #将字符串填充为指定长度，不足的在右边填充空格
+str1.isdigit() #判断字符串是否只由数字组成
+str1.isalpha() #判断字符串是否只由字母组成
+str1.isalnum() #判断字符串是否只由字母和数字组成
+str1.isupper() #判断字符串是否只由大写字母组成
+str1.islower() #判断字符串是否只由小写字母组成
+str1.istitle() #判断字符串是否只由标题字母组成
+str1.isspace() #判断字符串是否只由空格组成
+str1.isnumeric() #判断字符串是否只由数字组成
+str1.isidentifier() #判断字符串是否是合法的标识符
+str1.expandtabs(tabsize=8) #将字符串中的tab符号转换成空格，tabsize指定tab的长度
+str1.lstrip() #删除字符串左边的空格
+str1.rstrip() #删除字符串右边的空格
+str1.strip() #删除字符串首尾的空格
+str1.lower() #将字符串中的大写字母转换成小写字母
+#将字符串中的小写字母转换成大写字母
+str1.upper()
+#ord()函数获取字符的整数表示与chr()函数相反
+print(ord('a')) #97
+print(ord('A')) #65
+print(ord('中')) #20013
+print(chr(97)) #a
+print(chr(65)) #A
+print(chr(20013)) #中
+#len()函数获取字符串的长度
+print(len('abc')) #3
+print(len('中文')) #2
+#str()函数将其他类型转换成字符串
+print(str(123)) #123
+print(str(123.456)) #123.456
+print(str(True)) #True  
+print(str(None)) #None
+#repr()函数将其他类型转换成字符串   
+print(repr(123)) #123
+print(repr(123.456)) #123.456   
+print(repr(True)) #True
+print(repr(None)) #None
+#eval()函数将字符串转换成表达式，并返回表达式的值
+print(eval('1+2')) #3
+print(eval('1+2+3')) #6
+print(eval('1+2+3+4')) #10
+#exec()函数将字符串转换成表达式，并执行表达式
+exec('print("hello")') #hello
+#格式化字符串 第一种用占位符 % %d 整数 %f 浮点数 %s 字符串 %x 十六进制整数 %o 八进制整数 %e 指数 %.2f 保留两位小数  
+print('%s' % 'abc') #abc
+print('%d' % 123) #123
+print('%f' % 123.456) #123.456
+print('%x' % 123) #7b   
+print('%o' % 123) #173
+print('%s' % '中文') #中文
+print('%s' % '中文'.encode('utf-8')) #b'\xe4\xb8\xad\xe6\x96\x87'
+print('%s' % '中文'.encode('utf-8').decode('utf-8')) #中文
+print('%s' % '中文'.encode('utf-8').decode('utf-8').encode('utf-8')) #b'\xe4\xb8\xad\xe6\x96\x87'
+print('%s' % '中文'.encode('utf-8').decode('utf-8').encode('utf-8').decode('utf-8')) #中文
+print('%s' % '中文'.encode('utf-8').decode('utf-8').encode('utf-8').decode('utf-8').encode('utf-8')) #b'\xe4\xb8\xad\xe6\x96\x87'   
+
+name = '张三'
+age = 18
+gender='男'
+print('我叫%s，真的叫%s,今年%d岁,性别%s' % (name,name, age,gender)) #我叫张三，今年18岁 
+print ('我叫{0}，真的叫{0},今年{1}岁,性别{2}' .format (name, age,gender))# 第二种用.format 
+print (f'我叫{name}，真的叫{name},今年{age}岁,性别{gender}') # 第三用种f
+#九九乘法表
+  
+
+
+     
+
 
 
 
