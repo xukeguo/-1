@@ -337,6 +337,17 @@ while True:
     if inpu == "n":
         break
 print(dict)
+#创建一个字典，存储学生信息，包括姓名、年龄、成绩，并且要求每个学生的信息都不能重复。
+dict1={}
+name1=input("请输入1姓名：")
+name2=input("请输入2姓名：")
+name3 = input("请输入3姓名：")
+age1=int(input("请输入1年龄："))
+age2=int(input("请输入2年龄："))
+age3=int(input("请输入3年龄："))
+dict1['name']=[name1,name2,name3]
+dict1['age']=[age1,age2,age3]
+print(dict1)
 #创建列表
 list1 = [1,2,3,4,5,6,7,8,9,10]
 list2 = list([1,2,3,4,5,6,7,8,9,10])#
