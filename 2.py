@@ -667,6 +667,35 @@ print('%s' % '中文'.encode('utf-8').decode('utf-8')) #中文
 print('%s' % '中文'.encode('utf-8').decode('utf-8').encode('utf-8')) #b'\xe4\xb8\xad\xe6\x96\x87'
 print('%s' % '中文'.encode('utf-8').decode('utf-8').encode('utf-8').decode('utf-8')) #中文
 print('%s' % '中文'.encode('utf-8').decode('utf-8').encode('utf-8').decode('utf-8').encode('utf-8')) #b'\xe4\xb8\xad\xe6\x96\x87'   
+#字符串格的编码  解码
+s='存在的不一定合理'
+s_byte1=s.encode('utf-8')#编码
+print(s_byte1) #b'\xe5\xad\x98\xe5\x9c\x9f\xe4\xb8\x8d\xe4\xb8\x80\xe5\x90\xab\xe5\x90\x9b\xe7\x90\x86'
+print(s_byte1.decode('utf-8')) #  存在的不一定合理，解码
+s_byte2=s.encode('gbk')#编码
+print(s_byte2) #b'\xad\x98\xad\x9c\xad\x9f\xad\x8d\xad\x8d\xad\x9b\xad\x90\xad\x9b\xad\x86'
+print(s_byte2.decode(encoding='gbk')) #存在的不一定合理,解码
+s_byte3=s.encode('gbk').decode('gbk')#编码
+
+#字符串的比较
+print('abc'<'abd') #True
+print('abc'<'abd'<'abf') #True
+print('abc'<'abd'<'abf'<'abg') #False
+print('abc'<'abd'<'abf'<'abg'<'abh') #False
+print('abc'<'abd'<'abf'<'abg'<'abh'<'abj') #True
+#字符串的拼接
+print('abc'+'def') #abcdef
+print('abc'+'def'+'ghi') #abcdefghi
+print('abc'+'def'+'ghi'+'jkl') #abcdefghijkl
+print('abc'+'def'+'ghi'+'jkl'+'mno') #abcdefghijklmno
+print('abc'+'def'+'ghi'+'jkl'+'mno'+'pqr') #abcdefghijklmnopqr
+print('abc'+'def'+'ghi'+'jkl'+'mno'+'pqr'+'stu') #abcdefghijklmnopqrstu
+print('abc'+'def'+'ghi'+'jkl'+'mno'+'pqr'+'stu'+'vwx') #abcdefghijklmnopqrstuvwx
+print('abc'+'def'+'ghi'+'jkl'+'mno'+'pqr'+'stu'+'vwx'+'yz') #abcdefghijklmnopqrstuvwxyz
+#字符串的切片
+print('abcdefghijklmnopqrstuvwxyz'[0:3]) #abc
+#
+
 
 name = '张三'
 age = 18
@@ -674,8 +703,13 @@ gender='男'
 print('我叫%s，真的叫%s,今年%d岁,性别%s' % (name,name, age,gender)) #我叫张三，今年18岁 
 print ('我叫{0}，真的叫{0},今年{1}岁,性别{2}' .format (name, age,gender))# 第二种用.format 
 print (f'我叫{name}，真的叫{name},今年{age}岁,性别{gender}') # 第三用种f
-#九九乘法表
-  
+#绝
+
+ 
+     
+
+ 
+     
 
 
      
