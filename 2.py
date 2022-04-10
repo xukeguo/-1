@@ -356,7 +356,7 @@ dict2=dict1.copy()
 print (dict2) #{'age': 18, 'name': '张三'}
 #字典的查找
 dict1={'name':'张三','age':18,}
-print (dict1.get('name')) #张三
+print (dict1.get('name')) #张三 GET方法（）字符要‘’字符的查找匹配都要用‘’字符
 name=dict1.get('name')
 print (name) #张三
 print (dict1.get('age')) #18
@@ -366,6 +366,8 @@ print (dict1.get('age')) #18
 #字典的计数
 dict1={'name':'张三','age':18,}
 print (dict1.items()) #dict_items([('age', 18), ('name', '张三')])
+a=dict1.items()
+print (type(a)) #dict_items([('age', 18), ('name', '张三')])
 print (dict1.keys()) #dict_keys(['age', 'name'])
 print (dict1.values()) #dict_values([18, '张三'])
 #字典的排序
@@ -386,6 +388,7 @@ dict1={'name':'张三','age':18,}
 dict2={'name':'李四','age':19,}
 dict1.update(dict2)
 print (dict2) #{'age': 19, 'name': '李四'}
+print (dict1) #{'age': 19, 'name': '李四'}
 #字典的更新 dict1.update(dict2,dict3,dict4,dict5,dict6,dict7,dict8,dict9,dict10,dict11,dict12,dict13,dict14,dict15,dict16,dict17,dict18,dict19,dict20,dict21,dict22,dict23)
 dict1={'name':'张三','age':18,}
 dict2={'name':'李四','age':19,}
@@ -393,6 +396,9 @@ dict3={'name':'王五','age':20,}
 mydict=dict1.copy()
 mydict.update(dict2)
 print (mydict) #{'age': 20, 'name': '王五'}
+a=print (dict1) #{'age': 18, 'name': '张三'}
+print(type(a))
+
 #字典的更新 dict1.update(dict2,dict3,dict4,dict5,dict6,dict7,dict8,dict9,dict10,dict11,dict12,dict13,dict14,dict15,dict16,dict17,dict18,dict19,dict20,dict21,dict22,dict23)
 dict1={'name':'张三','age':18,}
 dict2={'name':'李四','age':19,}
@@ -408,7 +414,7 @@ if dict1:
     print ('字典不为空')
 else:
     print ('字典为空')  
-#字典的键值对
+#字典的键值对,python中的字典是无序的,所以字典的键值对是无序的,视图排序
 dict1={'name':'张三','age':18,}
 print (dict1.items()) #dict_items([('age', 18), ('name', '张三')])  
 print (dict1.keys()) #dict_keys(['age', 'name'])    
@@ -478,6 +484,75 @@ dict1['age']=input_age
 input_score = input('请输入学生成绩：')
 dict1['score']=input_score
 print (dict1)
+#字典视图排序
+dict1={'name':'张三','age':18,}
+print (sorted(dict1.items())) #[('age', 18), ('name', '张三')]
+print (sorted(dict1.keys())) #['age', 'name']
+print (sorted(dict1.values())) #[18, '张三']
+#字典的生成式
+list1=[ '张三', '李四', '王五', '赵六', '田七', '钱八', '孙九', '周十']
+list2=[18,19,20,21,22,23,24,25]
+print (dict(zip(list1,list2))) #{'张三': 18, '李四': 19, '王五': 20, '赵六': 21, '田七': 22, '钱八': 23, '孙九': 24, '周十': 25}
+print(type(list1)) #<class 'list'>
+list3=[90,80,70,60,50,40,30,20]
+dict1={ x:[y,z] for x,y,z in zip(list1,list2,list3)}
+dict2={ x:y for x,y in zip(list1,list2)}
+print(type(dict1)) #<class 'dict'>
+print (dict1)
+print (dict2)
+#元组的生成式
+tu= (x for x in range(10))
+print (type(tu)) #<class 'generator'>
+print (tu)
+t=('iii','jjj','fff')
+print (type(t)) #<class 'tuple'>
+t1=tuple(t)
+print (t1)
+#generator 什么类型  
+#generator是一种返回值不是一个数值的函数，而是一个返回值是一个迭代器的函数。
+#generator函数是一个状态有状态的函数，可以记住上次执行的状态，并且在下次执行时，从上次执行的状态开始执行。
+#集合的生成式
+set1={x for x in range(10)}
+print (type(set1)) #<class 'set'>
+print (set1)
+#集合的生成式
+set1={2,3,4,5,6,7,8,9,10}
+set2=set(range(10))
+print (type(set2)) #<class 'set'>
+#集合的交集
+print (set1 & set2) #{2, 3, 4, 5, 6, 7, 8, 9}
+#集合的并集
+print (set1 | set2) #{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+#集合的差集
+print (set1 - set2) #{0, 1}
+#集合的对称差集
+print (set1 ^ set2) #{0, 1, 10}
+#集合的子集
+print (set1 <= set2) #True
+#集合的超集
+print (set1 >= set2) #True
+#集合的子集
+print (set1 < set2) #False
+#集合的超集
+print (set1 > set2) #False
+#集合的对称差集
+print (set1 != set2) #True
+#集合的对称差集
+print (set1 == set2) #False
+#集合的移除
+set1.remove(2)#
+print (set1) #{3, 4, 5, 6, 7, 8, 9, 10}
+#集合的添加
+set1.add(11)
+set1.update([12,13,14])# 添加多个元素
+print (set1) #{3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}
+#集合的
+set1.discard(11)#把11从集合中移除
+print (set1) #{3, 4, 5, 6, 7, 8, 9, 10}
+set1.pop()#随机移除一个元素
+set1.clear()#清空集合
+set1.difference_update([1,2,3])#把集合中的元素从另一个集合中移除
+
 
 
 
