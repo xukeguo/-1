@@ -331,7 +331,7 @@ print (bool('')) #空字符串
 #字典的定义
 dict1={'name':'张三','age':18,}#字典的定义
 dict2=dict(name='张三',age=18,)#字典的定义
-print (dict1) #{'name': '张三', 'age': 18}
+print (dict2) #{'name': '张三', 'age': 18}
 dict1['name']='李四' #修改
 print (dict1) #{'name': '李四', 'age': 18}
 #字典的删除
@@ -354,8 +354,27 @@ print (sorted(dict1.values())) #['张三', 18]
 dict1={'name':'张三','age':18,}
 dict2=dict1.copy()
 print (dict2) #{'age': 18, 'name': '张三'}
-#字典的添加  
+#字典的查找
 dict1={'name':'张三','age':18,}
+print (dict1.get('name')) #张三
+name=dict1.get('name')
+print (name) #张三
+print (dict1.get('age')) #18
+#字典的添加
+#字典的索引
+#字典的切片
+#字典的计数
+dict1={'name':'张三','age':18,}
+print (dict1.items()) #dict_items([('age', 18), ('name', '张三')])
+print (dict1.keys()) #dict_keys(['age', 'name'])
+print (dict1.values()) #dict_values([18, '张三'])
+#字典的排序
+#字典的拷贝
+#字典的遍历
+#字典的查找
+
+
+dict1={'name':'张三','age':18,}#字典的添加  
 dict1[' 地址 ']=' 湖南 ' #字典的添加  
 print (dict1) # {'age': 18, 'name': '张三', ' 地址 ': ' 湖南 '}
 #组合字典示例
