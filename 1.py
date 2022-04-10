@@ -1,5 +1,8 @@
 
 
+from email.headerregistry import Address
+
+
 print
 #hfghfghfghfghfghghh
 print ("f")
@@ -325,15 +328,34 @@ while True:
     name = input("请输入姓名：")
     age = int(input("请输入年龄："))
     score = int(input("请输入成绩："))
-    dict[name]=[age,score]
+    Addres=input("请输入地址：")
+    dict[name]=[age,score,Addres]
+    inpu = input("是否继续（y/n）")
+    if inpu == "n":
+        break
     inpu = input("是否继续（y/n）：")
     if inpu == "n":
         break
 print(dict)
 #创建列表
 list1 = [1,2,3,4,5,6,7,8,9,10]
-list2 = list([1,2,3,4,5,6,7,8,9,10])
+list2 = list([1,2,3,4,5,6,7,8,9,10])#
 list3 = list(range(1,11))
+list4 = [i for i in range(1,11)]
+#列表推导式
+#列表推导式：[表达式 for 变量 in 可迭代对象 if 条件] 
+#列表推导式：[表达式 for 变量 in 可迭代对象]
+#列表推导式：[表达式 for 变量 in 可迭代对象 if 条件 for 变量 in 可迭代对象 if 条件]
+#列表推导式：[表达式 for 变量 in 可迭代对象 if 条件 for 变量 in 可迭代对象 if 条件 if 条件]
+#列表推导式：[表达式 for 变量 in 可迭代对象 if 条件 for 变量 in 可迭代对象 if 条件 if 条件]
+list5 = [i for i in range(1,11) if i%2==0]
+list6 = [i for i in range(1,11) if i%2!=0]
+list7 = [i for i in range(1,11) if i%2==0 if i%3==0]
+print(list7)
+list8 = [i for i in range(1,11) if i%2==0 if i%3!=0]
+print(list8)
+
+
 print(list1)
 print(list2)
 print(list3[0:5])#切片

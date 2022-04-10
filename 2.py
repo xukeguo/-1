@@ -329,7 +329,8 @@ print (bool('')) #空字符串
 #以下对象的布尔值为True：
 #非空字符串，非None，非0，非0.0，非空列表，非空元组，非空字典，非空集合，非空字符串，非空文件，非空类，非空对象，非空函数，非空闭包，非空类型，非空模块，非空类型，非空元组，非空字典，非空集合，非空字符串，非空文件，非空类，非空对象，非空函数，非空闭包，非空类型，非空模块，非空类型，非空元组，非空字典，非空集合，非空字符串，非空文件，非空类，非空对象，非空函数，非空
 #字典的定义
-dict1={'name':'张三','age':18,}
+dict1={'name':'张三','age':18,}#字典的定义
+dict2=dict(name='张三',age=18,)#字典的定义
 print (dict1) #{'name': '张三', 'age': 18}
 dict1['name']='李四' #修改
 print (dict1) #{'name': '李四', 'age': 18}
@@ -364,8 +365,8 @@ dict2={'name':'李四','age':19,}
 #字典的更新 dict1.update(dict2)
 dict1={'name':'张三','age':18,}
 dict2={'name':'李四','age':19,}
-dic1.update(dic2)
-print (dic2) #{'age': 19, 'name': '李四'}
+dict1.update(dict2)
+print (dict2) #{'age': 19, 'name': '李四'}
 #字典的更新 dict1.update(dict2,dict3,dict4,dict5,dict6,dict7,dict8,dict9,dict10,dict11,dict12,dict13,dict14,dict15,dict16,dict17,dict18,dict19,dict20,dict21,dict22,dict23)
 dict1={'name':'张三','age':18,}
 dict2={'name':'李四','age':19,}
@@ -449,7 +450,15 @@ score= (dict1.values()) #dict_values([18, '张三'])         #提取字典中的
 
 
 
-
+#创建学生信息字典
+dict1={}
+input_student = input('请输入学生姓名：')
+dict1['name']=input_student
+input_age = input('请输入学生年龄：')
+dict1['age']=input_age
+input_score = input('请输入学生成绩：')
+dict1['score']=input_score
+print (dict1)
 
 
 
