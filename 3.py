@@ -29,7 +29,7 @@ def my_abs(x):
         return -x
 print(my_abs(-10))
 #自己定义函数
-def my1(x):
+def my1(x):#不可变参数
     n1=list(n)#将n转换为列表
     for i  in x:
       n1.append(i)#添加
@@ -41,8 +41,27 @@ print(my1(m))
 print(n)
 print(m)
 #自己定义函数
-def my2():
+def my2():#不带参数
  return 'hello world'
 print(my2())
+#自己定义函数  可变参数 可以传入0个或多个参数 参数类型可以不同 不能传入关键字参数 不能传入可变参数 不能传入不可变参数 不能传入字典   可以传入关键字参数 可以传入可变参数  可以传入不可变参数  可以传入字典  
+def my3(a,b=100):#带默认值的参数
+    return a+b
+print(my3(10))
+print(my3(10,20))
+#自己定义函数
+def myfun(*args):#可变参数
+    sum=0
+    for i in args:
+        sum+=i
+    return sum
+print(fun(1,2,4,5))
+#自己定义函数
+def myfun(**kw):#关键字可变参数
+  print(kw)
+print(myfun(name='zhangsan',age=18,score=100))
+
+
+
 
 
