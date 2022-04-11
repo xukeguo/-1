@@ -51,15 +51,17 @@ print(str(a), type(str(a)))
 print(int(b), type(str(b)))
 print(int(c), type(str(c)))
 # 浮点数
-print(float(a), type(float(a)))
+print(float(a), type(a))
 # 字符串
 print(str(a), type(str(a)))
 # 整数
 print(int(b), type(int(b)))
+# 布尔类型
+a=2
+b=bool(a)
+print(b, type(b))
 # 布尔值
-print(int(c), type(int(c)))
-# 布尔值
-print(int(d), type(int(d)))
+print(True, type(True))
 # 字符串
 print(str(a), type(str(a)))
 # 浮点数
@@ -250,11 +252,12 @@ a//=10# 相当于a=a//10
 print(a)#11
 a**=10# 相当于a=a**10   
 print(a)#10000000000
-a&=10# 相当于a=a&10
+a&=10# 相当于a=a&10   二进制与运算
 print(a)#0
-a|=10# 相当于a=a|10     
-print(a)#10
-a^=10# 相当于a=a^10
+a|=10# 相当于a=a|10    二进制的或运算 
+print(a)#10  
+a=5
+a^=10# 相当于a=a^10  二进制的异或运算
 print(a)#10
 a>>=10# 相当于a=a>>10
 print(a)#0
@@ -356,9 +359,12 @@ dict2=dict1.copy()
 print (dict2) #{'age': 18, 'name': '张三'}
 #字典的查找
 dict1={'name':'张三','age':18,}
-print (dict1.get('name')) #张三 GET方法（）字符要‘’字符的查找匹配都要用‘’字符
-name=dict1.get('name')
-print (name) #张三
+print (dict1.get('name')) #张三 GET方法（）字符要‘’字符的查找匹配都要用‘’字符 GEt方法只找键
+name=dict1.get('nam')
+a=(name)
+b =0.1114
+print (type(b )) #<class 'float'>
+print (a) #张三
 print (dict1.get('age')) #18
 #字典的添加
 #字典的索引
@@ -370,10 +376,10 @@ a=dict1.items()
 print (type(a)) #dict_items([('age', 18), ('name', '张三')])
 print (dict1.keys()) #dict_keys(['age', 'name'])
 print (dict1.values()) #dict_values([18, '张三'])
-#字典的排序
-#字典的拷贝
-#字典的遍历
-#字典的查找
+#字典的排序 
+#字典的拷贝  
+#字典的遍历 
+#字典的查找             
 
 
 dict1={'name':'张三','age':18,}#字典的添加  
@@ -404,7 +410,7 @@ dict1={'name':'张三','age':18,}
 dict2={'name':'李四','age':19,}
 dict3={'name':'王五','age':20,}
 mydict=dict1.copy()
-mydict.update(dict2,dict3)
+mydict.update(dict2)
 print (mydict) #{'age': 20, 'name': '王五'}
 #字典的添加
 
@@ -421,14 +427,14 @@ print (dict1.keys()) #dict_keys(['age', 'name'])
 print (dict1.values()) #dict_values([18, '张三'])
 #判断dict1中是否包含key
 dict1={'name':'张三','age':18,} 
-if 'name' in dict1:
-    print ('字典中包含name')
+if 'name' in dict1.keys():
+    print ('字典中包含name',dict1['name'])  
 else:
     print ('字典中不包含name')
 #判断dict1中是否包含value
 dict1={'name':'张三','age':18,}
 if '张三' in dict1.values():
-    print ('字典中包含张三')
+    print ('字典中包含张三的索引',dict1['name'])
 else:
     print ('字典中不包含张三')
 #判断dict1中是否包含key和value
@@ -514,10 +520,11 @@ print (type(set1)) #<class 'set'>
 print (set1)
 #集合的生成
 set1={2,3,4,5,6,7,8,9,10}
-set2=set(range(10))
+set2=set(range(10)) #用set函数生成集合
 set3={x for x in range(10) if x%2==0}
-set4={x for x in range(10) if x%2!=0}#集合的生成式
+set4={x for x in range(10) if x%2!=0}#集合的生成式或者推导式
 print (type(set2)) #<class 'set'>
+#集合的运算符号  并集& 
 #集合的交集
 print (set1 & set2) #{2, 3, 4, 5, 6, 7, 8, 9}
 #集合的并集
