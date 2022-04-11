@@ -30,6 +30,7 @@ def my_abs(x):
 print(my_abs(-10))
 #自己定义函数
 def my1(x):#不可变参数
+    global n1#全局变量
     n1=list(n)#将n转换为列表
     for i  in x:
       n1.append(i)#添加
@@ -40,6 +41,7 @@ n=list(m)
 print(my1(m))
 print(n)
 print(m)
+print(n1)
 #自己定义函数
 def my2():#不带参数
  return 'hello world'
