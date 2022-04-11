@@ -60,6 +60,14 @@ print(fun(1,2,4,5))
 def myfun(**kw):#关键字可变参数
   print(kw)
 print(myfun(name='zhangsan',age=18,score=100))
+#自己定义函数   
+def myfun1(*a,**b):#可变参数与关键字参数 可以同时使用 可变参数必须在关键字参数之前 关键字参数必须在可变参数之后 
+    print(a)
+    print(b)
+myfun1(1,2,3,4,5,name='zhangsan',age=18,score=100)
+print(myfun1(1,2,3,4,5,name='zhangsan',age=18,score=100))
+#自己定义函数
+
 
 
 
