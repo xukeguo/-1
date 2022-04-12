@@ -1,4 +1,9 @@
 #取款  
+import abc
+import bdb
+from cmath import e
+
+
 monry=10000000   #账户余额
 print('取款')
 s=int(input('请输入取款金额：'))  #取款金额
@@ -186,10 +191,15 @@ list1=[1,1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536]#生
 #创建一个数列，后面的数字是两个数的和
 list1=[1,1]
 for i in range(2,15):
-    list1.append(list1[-1]+list1[-2])
+    list1.append(list1[-1]+list1[-2])#索引取值
 print(list1)
 #创建一个数列，后面的数字的两倍
-list1=[1,1]
-for i in range(2,15):
-    list1.append(list1[-1]*2)
+list1=[1,2]
+for i in range(2,7):
+    list1.append(list1[-1]*2)#索引取值
 print(list1)
+#创建一个数列，后面的数字的两倍
+list1=['a','b','c','d','e','f']
+list2=[1,2,4,8,16,32,64]
+dict1={x:y for x,y in zip(list1,list2)}
+print(dict1)

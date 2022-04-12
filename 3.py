@@ -99,7 +99,7 @@ for x,y in dict.items():
     if x == max(dict,key=dict.get):#判断x是否在字典中
        min_sum=y
 for x,y in dict.items():
-    if y > min_sum:
+    if y == min_sum:
          print(x,y)
           
 list(dict.keys())[list(dict.values()).index('张三')]#输出字典中包含的某键值的对应键
@@ -135,11 +135,8 @@ print('李四的性别: %s'% persons['LiSi'])
 '''输出如下
 
 李四的性别: male'''
-#素数
-dict1={}
-for i in range(2,101):
-    dict1[i]=True
-    
+s
+
 
     
 
