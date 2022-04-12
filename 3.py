@@ -1,5 +1,5 @@
 #编写计算圆周率的程序      可以使用math库
-#自己定义函数
+
 from unicodedata import name
 
 
@@ -60,7 +60,7 @@ def myfun(*args):#可变参数
     for i in args:
         sum+=i
     return sum
-print(fun(1,2,4,5))
+print(myfun(1,2,4,5))
 #自己定义函数
 def myfun(**kw):#关键字可变参数
   print(kw)
@@ -102,6 +102,7 @@ males = filter(lambda x:'male'== x[1], persons.items())
 for (key,value) in males:
   print('%s : %s' % (key,value))
 
+
 '''输出如下：
 
 LiSi : male
@@ -120,6 +121,8 @@ print('李四的性别: %s'% persons['LiSi'])
 
 李四的性别: male'''
 
+
+    
 
 
 
