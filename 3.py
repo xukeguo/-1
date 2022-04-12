@@ -77,28 +77,32 @@ dict1={'name':'zhangsan','age':18,'score':100}
 print(dict1['name'])
 print(dict1['age'])
 print(dict1['score'])
-dict1['name']='lisi'    
+dict1['name']='lisi'   #修改 
 print(dict1['name'])
 # 输出字典中的包含某个值的所有键  
 print(dict1.keys())
 # 输出字典中的包含某个值的所有值
 print(dict1.values())
 # 输出字典中包含的某键值的对应键
-#print字典中包含的某键值的对应键  
+#print字典中包含的某键值的对应键  筛选
 
 dict={'name':'张三',3:9,4:5}
-list(dict.keys())[list(dict.values()).index('张三')]#输出字典中包含的某键值的对应键
+list(dict.keys())[list(dict.values()).index('张三')]
+lis1=list(dict.values()).index('张三')
+print(lis1)
+#输出字典中包含的某键值的对应键
 #根据最小值返回对应的键
 dict={2:1,3:9,4:5}
 min(dict,key=dict.get)
 #根据最大值返回对应的键
 dict={2:1,3:9,4:5}
 max(dict,key=dict.get)
-#找出所有键值为男性的键对
+#找出所有键值为男性的键对 字典的筛选的查找
 persons={'ZhangSan':'male',
 'LiSi':'male',
 'WangHong':'female'}
 males = filter(lambda x:'male'== x[1], persons.items())
+print(males,type(males)) 
 for (key,value) in males:
   print('%s : %s' % (key,value))
 
@@ -119,6 +123,15 @@ print('李四的性别: %s'% persons['LiSi'])
 '''输出如下
 
 李四的性别: male'''
+#找出所有键值为男性的键对 字典的筛选的查找 用for  in  语句
+persons={'ZhangSan':'male','LiSi':'male','WangHong':'female'}
+for x,y in persons.items():
+    if y=='male':
+        print(x,y)
+
+
+
+
 
 
 
