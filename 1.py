@@ -149,8 +149,8 @@ for i in range(2,1000):
         if i%j==0:
             break #跳出循环
     else:
-       print(i)
-    print("good")
+     print(i)
+
 
 #打印1到100的偶数
 for i in range(1,100):
@@ -247,7 +247,7 @@ for i in range(2,inpu):
     if inpu%i==0:
         print("不是素数")
         break
-    else:
+else:
      print("是素数")
 #包含1到100的质数的集合
 dict={}
@@ -256,8 +256,8 @@ for i in range(2,100):
         if i%j==0:
             break
     else:
-        ge = i#获取质数
-        dict[ge]=ge
+     ge = i#获取质数
+     dict[ge]=ge
 print(dict)
 #1到100的质数的和
 sum=0
@@ -435,7 +435,20 @@ print('半径为{0:.2f}的圆的面积是{1:.2f}'.format(r,area))
   #7.编写程序，
 
     
-
+#找数列 最大数
+list1=[1,5,5,9,11,88,102]
+sum=-100#若干小
+for i in list1:
+    if i> sum:
+        sum=i
+print(sum)
+#找数列 最小数
+list1=[1,5,5,9,11,88,102]
+sum=1000#若干大
+for i in list1:
+    if i< sum:
+        sum=i
+print(sum)
 
 
 

@@ -33,7 +33,7 @@ def my_abs(x):
 print(my_abs(-10))
 #自己定义函数
 def my1(x):#不可变参数
-    global n1#全局变量
+   # global n1#全局变量
     n1=list(n)#将n转换为列表
     for i  in x:
       n1.append(i)#添加
@@ -77,28 +77,32 @@ dict1={'name':'zhangsan','age':18,'score':100}
 print(dict1['name'])
 print(dict1['age'])
 print(dict1['score'])
-dict1['name']='lisi'    
+dict1['name']='lisi'   #修改 
 print(dict1['name'])
 # 输出字典中的包含某个值的所有键  
 print(dict1.keys())
 # 输出字典中的包含某个值的所有值
 print(dict1.values())
 # 输出字典中包含的某键值的对应键
-#print字典中包含的某键值的对应键  
+#print字典中包含的某键值的对应键  筛选
 
 dict={'name':'张三',3:9,4:5}
-list(dict.keys())[list(dict.values()).index('张三')]#输出字典中包含的某键值的对应键
+list(dict.keys())[list(dict.values()).index('张三')]
+lis1=list(dict.values()).index('张三')
+print(lis1)
+#输出字典中包含的某键值的对应键
 #根据最小值返回对应的键
 dict={2:1,3:9,4:5}
 min(dict,key=dict.get)
 #根据最大值返回对应的键
 dict={2:1,3:9,4:5}
 max(dict,key=dict.get)
-#找出所有键值为男性的键对
+#找出所有键值为男性的键对 字典的筛选的查找
 persons={'ZhangSan':'male',
 'LiSi':'male',
 'WangHong':'female'}
 males = filter(lambda x:'male'== x[1], persons.items())
+print(males,type(males)) 
 for (key,value) in males:
   print('%s : %s' % (key,value))
 
@@ -120,6 +124,95 @@ print('李四的性别: %s'% persons['LiSi'])
 '''输出如下
 
 李四的性别: male'''
+#找出所有键值为男性的键对 字典的筛选的查找 用for  in  语句
+persons={'ZhangSan':'male','LiSi':'male','WangHong':'female'}
+dict1={x:y for x,y in persons.items()}
+print(dict1)  
+for x,y in persons.items():
+    if y=='male':
+        print(x,y)
+
+#找数列 最大数
+list1=[1,5,5,9,11,88,102]
+sum=-100#若干小
+for i in list1:
+    if i> sum:
+        sum=i
+print(sum)
+#数列的和
+list1=[1,5,5,9,11,88,102]
+sum=0
+for i in list1:
+    sum+=i
+print(sum)
+
+#建立一个数列，求出数列的和 和的平方  和的立方  和的平方根 和的立方根  
+list1=[1,5,5,9,11,88,102]
+sum=0
+for i in list1:
+    sum+=i
+print(sum)
+print(sum**2)
+print(sum**3)
+print(sum**0.5)
+print(sum**(1/3))
+#建立一个数列，后面的数列的值为前面的数列的值的两倍
+list1=[1,5,5,9,11,88,102]
+list2=[]
+for i in list1:
+    list2.append(i*2)
+print(list2)
+
+#建立一个数列，后面为前面的数的值的和
+list1=[1,1,2,4]
+sum=0
+sum2=0
+i=2
+while sum2<100:
+    list2=list1[i:] #切片  取后面的数列  
+    for i in list1:
+      sum+=i
+    list1.append(sum)
+    sum2=sum
+    sum=0
+    i=i+1
+print(list1)
+#filter()函数 可以接收一个函数和一个序列。  函数返回True或False，filter()根据返回值是True还是False来过滤序列元素。
+#filter()函数返回的是一个Iterator，也就是一个惰性序列，所以要强迫filter()完成计算结果，需要用list()函数获得所有结果并返回list。
+#filter()函数返回的Iterator是惰性计算的序列，所以只有在for循环迭代这个Iterator时，才会真正计算出结果。   
+#filter()求素数  
+dict1={}
+for i in range(2,101):
+    dict1[i]=True   
+for i in range(2,55):
+    #if dict1[i]:
+        for j in range(i*2,101,i):#这里的i*2是为了排除i的倍数
+            dict1[j]=False
+print(dict1)
+dict2={}
+for x,y in dict1.items():
+    if y:
+        dict2[x]=y
+print(dict2)#找出所有的素数
+list1=[]
+for x,y in dict1.items():
+    if y:
+        list1.append(x)
+print(list1)
+#filter()求素数
+list1=[]
+for i in range(2,101):
+    list1.append(i)
+print(list1)
+list2=list(filter(lambda x:dict1[x],list1))
+print(list2)
+#filter()求素数
+set(filter(lambda x:dict1[x],list1)
+#filter()求素数
+
+#map()函数
+#map()函数接收两个参数，一个是函数，一个是序列，map将传入的函数依次作用到序列的每个元素，并把结果作为新的Iterator返回。
+
 
 
     
