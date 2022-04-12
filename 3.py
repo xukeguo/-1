@@ -183,11 +183,16 @@ print(list1)
 dict1={}
 for i in range(2,101):
     dict1[i]=True   
-for i in range(2,101):
-    if dict1[i]:
+for i in range(2,55):
+    #if dict1[i]:
         for j in range(i*2,101,i):#这里的i*2是为了排除i的倍数
             dict1[j]=False
 print(dict1)
+dict2={}
+for x,y in dict1.items():
+    if y:
+        dict2[x]=y
+print(dict2)#找出所有的素数
 list1=[]
 for x,y in dict1.items():
     if y:
