@@ -425,19 +425,20 @@ dict1={'name':'张三','age':18,}
 print (dict1.items()) #dict_items([('age', 18), ('name', '张三')])  
 print (dict1.keys()) #dict_keys(['age', 'name'])    
 print (dict1.values()) #dict_values([18, '张三'])
-#判断dict1中是否包含key
+#判断查找dict1中是否包含key
 dict1={'name':'张三','age':18,} 
 if 'name' in dict1.keys():
     print ('字典中包含name',dict1['name'])  
 else:
     print ('字典中不包含name')
-#判断dict1中是否包含value
+#判断查找dict1中是否包含value
+
 dict1={'name':'张三','age':18,}
 if '张三' in dict1.values():
     print ('字典中包含张三的索引',dict1['name'])
 else:
     print ('字典中不包含张三')
-#判断dict1中是否包含key和value
+#判断查找dict1中是否包含key和value
 dict1={'name':'张三','age':18,}
 if ('name','张三') in dict1.items():
     print ('字典中包含name和张三')
