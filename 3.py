@@ -135,7 +135,11 @@ print('李四的性别: %s'% persons['LiSi'])
 '''输出如下
 
 李四的性别: male'''
-
+#素数
+dict1={}
+for i in range(2,101):
+    dict1[i]=True
+    
 
     
 
