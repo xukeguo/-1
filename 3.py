@@ -168,7 +168,7 @@ sum=0
 sum2=0
 i=2
 while sum2<100:
-    #list2=list1[i:]
+    list2=list1[i:] #切片  取后面的数列  
     for i in list1:
       sum+=i
     list1.append(sum)
@@ -176,7 +176,31 @@ while sum2<100:
     sum=0
     i=i+1
 print(list1)
+#filter()函数 可以接收一个函数和一个序列。  函数返回True或False，filter()根据返回值是True还是False来过滤序列元素。
+#filter()函数返回的是一个Iterator，也就是一个惰性序列，所以要强迫filter()完成计算结果，需要用list()函数获得所有结果并返回list。
+#filter()函数返回的Iterator是惰性计算的序列，所以只有在for循环迭代这个Iterator时，才会真正计算出结果。   
+#filter()求素数  
+dict1={}
+for i in range(2,101):
+    dict1[i]=True   
+for i in range(2,101):
+    if dict1[i]:
+        for j in range(i*2,101,i):#这里的i*2是为了排除i的倍数
+            dict1[j]=False
+print(dict1)
+#filter()求素数
+list1=[]
+for i in range(2,101):
+    list1.append(i)
+print(list1)
+list2=list(filter(lambda x:dict1[x],list1))
+print(list2)
+#filter()求素数
+set(filter(lambda x:dict1[x],list1)
+#filter()求素数
 
+#map()函数
+#map()函数接收两个参数，一个是函数，一个是序列，map将传入的函数依次作用到序列的每个元素，并把结果作为新的Iterator返回。
 
 
 
