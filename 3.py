@@ -33,7 +33,7 @@ def my_abs(x):
 print(my_abs(-10))
 #自己定义函数
 def my1(x):#不可变参数
-    global n1#全局变量
+   # global n1#全局变量
     n1=list(n)#将n转换为列表
     for i  in x:
       n1.append(i)#添加
@@ -125,11 +125,57 @@ print('李四的性别: %s'% persons['LiSi'])
 李四的性别: male'''
 #找出所有键值为男性的键对 字典的筛选的查找 用for  in  语句
 persons={'ZhangSan':'male','LiSi':'male','WangHong':'female'}
+dict1={x:y for x,y in persons.items()}
+print(dict1)  
 for x,y in persons.items():
     if y=='male':
         print(x,y)
 
+#找数列 最大数
+list1=[1,5,5,9,11,88,102]
+sum=-100#若干小
+for i in list1:
+    if i> sum:
+        sum=i
+print(sum)
+#数列的和
+list1=[1,5,5,9,11,88,102]
+sum=0
+for i in list1:
+    sum+=i
+print(sum)
 
+#建立一个数列，求出数列的和 和的平方  和的立方  和的平方根 和的立方根  
+list1=[1,5,5,9,11,88,102]
+sum=0
+for i in list1:
+    sum+=i
+print(sum)
+print(sum**2)
+print(sum**3)
+print(sum**0.5)
+print(sum**(1/3))
+#建立一个数列，后面的数列的值为前面的数列的值的两倍
+list1=[1,5,5,9,11,88,102]
+list2=[]
+for i in list1:
+    list2.append(i*2)
+print(list2)
+
+#建立一个数列，后面为前面的数的值的和
+list1=[1,1,2,4]
+sum=0
+sum2=0
+i=2
+while sum2<100:
+    #list2=list1[i:]
+    for i in list1:
+      sum+=i
+    list1.append(sum)
+    sum2=sum
+    sum=0
+    i=i+1
+print(list1)
 
 
 
