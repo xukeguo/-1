@@ -146,4 +146,25 @@ print (num_a>num_b and '第一个数字大' or num_a==num_b and '两个数字相
 print ((num_a,'>',num_b) if num_a>num_b else  (num_a,'=',num_b) if num_a==num_b else (num_a,'<',num_b))
 print (str(num_a)+'>'+str(num_b) if num_a>num_b else (num_a,'=',num_b) if num_a==num_b else (num_a,'<',num_b))
 print (num_a>num_b and str(num_a)+'>'+str(num_b) or num_a==num_b and str(num_a)+'='+str(num_b) or '第二个数字大')
+#素数 逆向思维
+dict1={}
+for i in range(2,101):
+    dict1[i]=True
+    for j in range(2,i):
+        if i%j==0:
+            dict1[i]=False
+            break
+    else:
+        dict1[i]=True 
+print(dict1)
+    
+#素数 正向思维
+dict1={}
+for i in range(2,101):
+    dict1[i]=True 
+for i in range(2,101):
+    for j in range(i*2,101,i):
+      dict1[j]=False
+print(dict1)
+ 
  

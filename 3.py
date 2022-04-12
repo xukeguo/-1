@@ -85,11 +85,23 @@ print(dict1.keys())
 print(dict1.values())
 # 输出字典中包含的某键值的对应键
 #print字典中包含的某键值的对应键  
-
-dict={3:9,4:5}
+#输出字典中键值最小的键值对
+dict={'LiSi':9,'waiwu':5,'lili':5}
 for x,y in dict.items():
-    if y == min(dict,key=dict.get):
-       print(x,y)
+    if x == min(dict,key=dict.get):#判断x是否在字典中
+       min_sum=y
+for x,y in dict.items():
+    if y == min_sum:
+         print(x,y)
+#输出字典中键值最大的键值对
+dict={'LiSi':9,'waiwu':5,'lili':5,'wangwu':8,'zhaoliu':9}
+for x,y in dict.items():
+    if x == max(dict,key=dict.get):#判断x是否在字典中
+       min_sum=y
+for x,y in dict.items():
+    if y > min_sum:
+         print(x,y)
+          
 list(dict.keys())[list(dict.values()).index('张三')]#输出字典中包含的某键值的对应键
 #根据最小值返回对应的键
 dict={2:1,3:9,4:5}
