@@ -222,3 +222,30 @@ list1=['a','b','c','d','e','f']
 list2=[1,2,4,8,16,32,64]
 dict1={x:y for x,y in zip(list1,list2)}
 print(dict1)
+
+#递归函数
+def fact(n):
+    if n==1:
+        return 2
+    return n*fact(n-1)
+print(fact(5))
+
+def fact(n):
+    return fact_iter(n,2)
+def fact_iter(num,product):
+    if num==1:
+        return product
+    return fact_iter(num-1,num*product)
+print(fact(5))
+
+#翡波那契数列
+def fib(n):
+    if n==1 or n==2:
+        return 1
+    return fib(n-1)+fib(n-2)
+print(fib(10))
+
+list1=[1,1,2]
+for i in range(3,10):
+    list1.append(list1[-1]+list1[-2])
+print(list1)

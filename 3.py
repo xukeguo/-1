@@ -36,7 +36,7 @@ def my1(x):#不可变参数
     global n1#全局变量
     n1=list(n)#将n转换为列表
     for i  in x:
-      n1.append(i)#添加
+      n1.send(i)#添加
     return n1#返回
 
 m=[1,5,9,44]
@@ -135,10 +135,7 @@ print('李四的性别: %s'% persons['LiSi'])
 '''输出如下
 
 李四的性别: male'''
-s
 
-
-    
 
 
 
