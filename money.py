@@ -225,10 +225,10 @@ print(dict1)
 
 #递归函数
 def fact(n):
-    if n==1:
-        return 2
-    return n*fact(n-1)
-print(fact(5))
+    if n==2:
+        return 1
+    return 2*fact(n-2)
+print(fact(8))
 
 def fact(n):
     return fact_iter(n,2)
