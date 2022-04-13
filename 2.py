@@ -712,7 +712,7 @@ print('我叫%s，真的叫%s,今年%d岁,性别%s' % (name,name, age,gender)) #
 print ('我叫{0}，真的叫{0},今年{1}岁,性别{2}' .format (name, age,gender))# 第二种用.format 
 print (f'我叫{name}，真的叫{name},今年{age}岁,性别{gender}') # 第三用种f
 #绝
-
+     
  
      
 

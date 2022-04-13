@@ -246,7 +246,7 @@ inpu = int(input("请输入一个数字："))
 for i in range(2,inpu):
     if inpu%i==0:
         print("不是素数")
-        break
+        break #跳出循环
 else:
      print("是素数")
 #包含1到100的质数的集合
@@ -256,8 +256,8 @@ for i in range(2,100):
         if i%j==0:
             break
     else:
-     ge = i#获取质数
-     dict[ge]=ge
+            ge = i#获取质数
+            dict[ge]=ge
 print(dict)
 #1到100的质数的和
 sum=0
@@ -763,19 +763,7 @@ import math
 a=math.pi
 print(a)
     #7.编写程序，计算圆周  另一种写法
-    #filter()函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。
-    # 例如，假设我们用一个列表来表示一个学生名单：
-    #filter()接收一个函数和一个序列。   
-    # #filter()把传入的函数依次作用于每个元素，然后根据返回值是True还是False决定保留还是丢弃该元素。         
-    # #filter()函数返回的是一个Iterator，也就是一个惰性序列，所以要强迫filter()完成计算结果，需要用list()函数获得所有结果并返回list。   
-    # #用filter求素数        
-def is_prime(n):
-    for i in range(2,n):
-        if n%i==0:
-            return False
-    return True
-     
-print(list(filter(is_prime,range(2,101))))
+
 
 
 
