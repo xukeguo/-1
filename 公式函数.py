@@ -375,7 +375,7 @@ def my_average(list):
     for i in list:
         sum+=i
     return sum/len(list)
-#因式分解
+#质因式分解
 
 def my_factor(n):
     b=n
