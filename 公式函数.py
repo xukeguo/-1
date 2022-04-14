@@ -506,15 +506,18 @@ def my_password(password):
         password=input('请输入密码：')
         if password==a:
             print('密码可用')
+            global   b
+            b=1
             return password
         else:
             print('两次输入不一致')
             return my_password(password)
-      
 
-
+b=0
 for i in range(3):
+    if b==1:
+     break
     password=input('请输入密码:')
     my_password(password)
-
-
+b=0
+print('密码可用')
