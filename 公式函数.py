@@ -545,3 +545,57 @@ else:
     print('输入正确')
 finally:
     print('程序结束')
+#class
+class MyClass:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+    def my_print(self):
+        print('%s的年龄是%d'%(self.name,self.age))
+    def my_add(self,a,b):
+        return a+b
+    def my_sub(self,a,b):
+        return a-b
+    def my_mul(self,a,b):
+        return a*b
+    def my_div(self,a,b):
+        return a/b
+class MyClass2(MyClass):
+    def __init__(self,name,age,):
+        super().__init__(name,age)
+    def my_print(self):
+        print('%s的年龄是%d'%(self.name,self.age))
+    def my_add(self,a,b):
+        return a+b
+    def my_sub(self,a,b):
+        return a-b
+    def my_mul(self,a,b):
+        return a*b
+    def my_div(self,a,b):
+        return a/b
+        #继承
+        #继承的基本原理 
+        #父类的方法，子类的方法，父类的属性，子类的属性
+        #父类的方法，子类的方法，父类的属性，子类的属性
+        #实例化父类，实例化子类，调用父类的方法，调用子类的方法
+        def eat(self):
+            print('吃饭')
+#静态方法  
+    @staticmethod
+    def my_static_method():
+            print('静态方法')
+#类方法
+    @classmethod
+    def my_class_method(cls):
+        print('类方法')
+#实例化类
+class_1=MyClass('张三',18)
+class_2=MyClass2('李四',19)
+class_1.eat()
+class_2.eat()
+class_1.my_static_method()
+class_2.my_static_method()
+class_1.my_class_method()
+class_2.my_class_method()
+#继承
+#继承的基本原理
