@@ -413,11 +413,108 @@ n=int(input('请输入一个数字:'))
 my_prime(n)
 #解方程
 def my_equation(a,b,c):
-    x=(-b+math.sqrt(b**2-4*a*c))/(2*a)
-    y=(-b-math.sqrt(b**2-4*a*c))/(2*a)
-    print('x=%f,y=%f'%(x,y))    
+    import math
+    x1=(-b+math.sqrt(b*b-4*a*c))/(2*a)
+    x2=(-b-math.sqrt(b*b-4*a*c))/(2*a)
+    print('x1=%f,x2=%f'%(x1,x2))
 a=int(input('请输入a:'))
 b=int(input('请输入b:'))
 c=int(input('请输入c:'))
 my_equation(a,b,c)
-#解方程
+#输入几个数字，输出最大值
+def my_max(list):
+    max=list[0]
+    for i in list:
+        if i>max:
+            max=i
+    return max
+list=[]
+for i in range(3):
+    list.append(int(input('请输入一个数字:')))
+print(my_max(list))
+#输入几个数字，输出最小值
+def my_min(list):
+    min=list[0]
+    for i in list:
+        if i<min:
+            min=i
+    return min
+list=[]
+for i in range(3):
+    list.append(int(input('请输入一个数字:')))
+print(my_min(list))
+#输入几个数字，输出平均值
+def my_average(list):
+    sum=0
+    for i in list:
+        sum+=i
+    return sum/len(list)
+list=[]
+for i in range(3):
+    list.append(int(input('请输入一个数字:')))
+print(my_average(list))
+#输入一个数字，输出该数字的因式分解
+def my_factor(n):
+    b=n
+    a=0
+    for i in range(1,n+1):
+     if n%i==0:
+            list8.append(i)
+            n=n/i
+            a=1
+list8=[]
+n=int(input('请输入一个数字:'))
+print(my_factor(n))
+print(list8)
+#输入几个数字，组成一个数
+def my_factor(a,b,c):
+    n=a*100+b*10+c
+    return n
+a=int(input('请输入第一个数字:'))
+b=int(input('请输入第二个数字:'))
+c=int(input('请输入第三个数字:'))
+print(my_factor(a,b,c))
+#输入一个数字，判断是否是质数
+def my_prime(n):
+    for i in range(2,n):
+        if n%i==0:
+            print('%d不是素数'%n)
+            break
+    else:
+        print('%d是素数'%n)
+n=int(input('请输入一个数字:'))
+my_prime(n)
+#核对用户输入的密码合法性
+def my_password(password):
+    if len(password)<6:
+        print('密码长度不能小于6位')
+    elif len(password)>12:
+        print('密码长度不能大于12位')
+    elif password.isdigit():
+        print('密码不能全为数字')
+    elif password.isalpha():
+        print('密码不能全为字母')
+    
+    elif password=='123456':
+            print('密码不能为123456')
+     
+    elif password=='abcdef':
+                print('密码不能为abcdef')
+    else:
+        a=password
+        print('密码可用，再次输入')
+        password=input('请输入密码：')
+        if password==a:
+            print('密码可用')
+            return password
+        else:
+            print('两次输入不一致')
+            return my_password(password)
+      
+
+
+for i in range(3):
+    password=input('请输入密码:')
+    my_password(password)
+
+
