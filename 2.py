@@ -1,3 +1,4 @@
+# coding=utf-8
 #a = open("/Users/xuekguo/Documents/test.txt", "a+")
 #print("http:\\\\www.baidu.com", file=a)
 #a.close()   # 关闭文件

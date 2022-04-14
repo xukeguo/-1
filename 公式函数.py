@@ -1,8 +1,8 @@
 print(bool(6==7))#判断是否相等
 #1.编写程序，输入一个数字，判断这个数字是否是素数（质数）。
-inpu = int(input("请输入一个数字："))
-for i in range(2,inpu):
-    if inpu%i==0:
+input = int(input("请输入一个数字："))
+for i in range(2,input):
+    if input%i==0:
         print("不是素数")
         break #跳出循环
 else:
@@ -14,7 +14,7 @@ for i in range(2,100):
         if i%j==0:
             break
     else:
-            ge = i#获取质数
+            ge = i#获取质数88
             dict[ge]=ge
 print(dict)
 #1到100的质数的和
@@ -109,6 +109,13 @@ def fact(n):
         return 1
     return 2*fact(n-2)
 print(fact(8))
+
+#递归函数
+def fact(n):
+    if n==101:
+        return 0
+    return n+fact(n+1)
+print(fact(1))
 
 def fact(n):
     return fact_iter(n,2)
@@ -344,7 +351,7 @@ for i in range(a+b,1,-1):
         break
 else:
     print('没有公约数')
-#求两数的最小公位数
+#求两数的最小公倍数
 a = int(input('请输入第一个数字:'))
 b = int(input('请输入第二个数字:'))
 for i in range(1,a*b+1):
@@ -379,6 +386,7 @@ def my_average(list):
 
 def my_factor(n):
     b=n
+    print(b)
     a=0
     for i in range(2,n):
         if n%i==0:
@@ -521,3 +529,19 @@ for i in range(3):
     my_password(password)
 b=0
 print('密码可用')
+#try...except...else...finally
+import traceback
+try:
+    a=int(input('请输入一个数字:'))
+    b=int(input('请输入一个数字:'))
+    print(a/b)
+except ZeroDivisionError:
+    print('除数不能为0')
+except ValueError:
+    print('输入的不是数字')
+except:
+    print('未知错误')    
+else:
+    print('输入正确')
+finally:
+    print('程序结束')
