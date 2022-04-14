@@ -400,3 +400,24 @@ list8=[]
 n=int(input('请输入一个数字:'))
 print(my_factor(n))
 print(list8)
+#解yython中的练习题
+#1.输入一个数字，判断是否是素数
+def my_prime(n):    
+    for i in range(2,n):
+        if n%i==0:
+            print('%d不是素数'%n)
+            break
+    else:
+        print('%d是素数'%n)
+n=int(input('请输入一个数字:'))
+my_prime(n)
+#解方程
+def my_equation(a,b,c):
+    x=(-b+math.sqrt(b**2-4*a*c))/(2*a)
+    y=(-b-math.sqrt(b**2-4*a*c))/(2*a)
+    print('x=%f,y=%f'%(x,y))    
+a=int(input('请输入a:'))
+b=int(input('请输入b:'))
+c=int(input('请输入c:'))
+my_equation(a,b,c)
+#解方程
