@@ -671,7 +671,7 @@ class MyClass2(MyClass):
     @classmethod
     def my_class_method(cls):
         print('类方法')
-#实例化类
+'''#实例化类
 class_1=MyClass('张三',18)
 class_2=MyClass2('李四',19)
 class_1.eat()
@@ -679,118 +679,56 @@ class_2.eat()
 class_1.my_static_method()
 class_2.my_static_method()
 class_1.my_class_method()
-class_2.my_class_method()
+class_2.my_class_method()'''
 #继承
 #继承的基本原理
 list1=list(range(1,10))
 a=min(list1)
 print(a)
-class Mylist:
-    def __init__(self,list1):
-        self.list1=list1
-    def my_min(self):
-        return min(self.list1)
-    def my_max(self):
-        return max(self.list1)
-    def my_average(self):
-        return sum(self.list1)/len(self.list1)
-    def my_sum(self):
-        return sum(self.list1)
-    def my_len(self):
-        return len(self.list1)
-    def my_count(self,a):
-        return self.list1.count(a)
-    def my_index(self,a):
-        return self.list1.index(a)
-    def my_append(self,a):
-        self.list1.append(a)
-    def my_insert(self,a,b):
-        self.list1.insert(a,b)
-    def my_remove(self,a):
-        self.list1.remove(a)
-    def my_pop(self,a):
-        self.list1.pop(a)
-    def my_clear(self):
-        self.list1.clear()
-    def my_reverse(self):
-        self.list1.reverse()
-    def my_sort(self):
-        self.list1.sort()
-    def my_copy(self):
-        return self.list1.copy()
-    def my_extend(self,a):
-        self.list1.extend(a)
-    def my_count(self,a):
-        return self.list1.count(a)
-    def my_index(self,a):
-        return self.list1.index(a)
-    def my_append(self,a):
-        self.list1.append(a)
-    def my_insert(self,a,b):
-        self.list1.insert(a,b)
-    def my_remove(self,a):
-        self.list1.remove(a)
-    def my_pop(self,a):
-        self.list1.pop(a)
-    def my_clear(self):
-        self.list1.clear()
-    def my_reverse(self):
-        self.list1.reverse()
-    def my_sort(self):
-        self.list1.sort()
-    def my_copy(self):
-        return self.list1.copy()    
-class MyList(list):
-    #def __init__(self,*args):
-        #super().__init__(*args)
-    def my_print(self):
-        print(self)
-    def my_add(self,a,b):
-        return a+b
-    def my_sub(self,a,b):
-        return a-b
-    def my_mul(self,a,b):
-        return a*b
-    def my_div(self,a,b):
-        return a/b
-    def my_mod(self,a,b):
-        return a%b
-    def my_pow(self,a,b):
-        return a**b
-    def my_max(self,a,b):
-        return max(a,b)
-    def my_min(self,a,b):
-        return min(a,b)
-    def my_average(self,a,b):
-        return (a+b)/2
-    def my_factor(self,a):
-        for i in range(1,a+1):
-            if a%i==0:
-                print('%d的因数是%d'%(a,i))
-                break
-    def my_prime(self,a):
-        for i in range(2,a):
-            if a%i==0:
-                print('%d不是素数'%a)
-                break
-        else:
-            print('%d是素数'%a)
-#实例化类
-list_1=MyList(list1)
-a=my_average(list_1)
-print(a)
-class mylist:
-    pass
-class mylist(list):
-    pass
-mylist_1=mylist([1,2,3,4,5])
-print(len(mylist_1))
-print(mylist_1,type(mylist_1)) 
+
 #类的继承
 #继承的基本原理
 #父类的方法，子类的方法，父类的属性，子类的属性
 #父类的方法，子类的方法，父类的属性，子类的属性
 
+class Student:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+    def study(self):
+        print('%s正在学习'%self.name)
+    def eat(self):
+        print('%s正在吃饭'%self.name)
+    def sleep(self):
+        print('%s正在睡觉'%self.name)
+class Teacher:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+    def teach(self):
+        print('%s正在教学'%self.name)
+    def eat(self):
+        print('%s正在吃饭'%self.name)
+    def sleep(self):
+        print('%s正在睡觉'%self.name)
+class Student_teacher(Student,Teacher):
+    def __init__(self,name,age):
+        super().__init__(name,age)
+    def study(self):
+        print('%s正在学习'%self.name)
+    def eat(self):
+        print('%s正在吃饭'%self.name)
+    def sleep(self):
+        print('%s正在睡觉'%self.name)
 
+stu=Student_teacher('张三',18)
+stu.study()
+stu.eat()
+stu.sleep()
+stu.teach()
+stu.eat()
+stu.sleep()
+
+#类的继承
 
 
