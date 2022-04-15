@@ -386,8 +386,9 @@ def my_average(list):
 
 def my_factor(n):
     b=n
-    print(b)
     a=0
+    print(b)
+    
     for i in range(2,n):
         if n%i==0:
             for j in range(1,b):
@@ -493,42 +494,46 @@ def my_prime(n):
 n=int(input('请输入一个数字:'))
 my_prime(n)
 #核对用户输入的密码合法性
-def my_password(password):
-    if len(password)<6:
+def my_password(password_a=0):
+ for i in range(3):
+ # if password_a==1:
+    #break
+  password=input('请输入密码:')
+  if len(password)<6:
         print('密码长度不能小于6位')
-    elif len(password)>12:
+  elif len(password)>12:
         print('密码长度不能大于12位')
-    elif password.isdigit():
+  elif password.isdigit():
         print('密码不能全为数字')
-    elif password.isalpha():
+  elif password.isalpha():
         print('密码不能全为字母')
     
-    elif password=='123456':
+  elif password=='123456':
             print('密码不能为123456')
      
-    elif password=='abcdef':
+  elif password=='abcdef':
                 print('密码不能为abcdef')
-    else:
+  else:
         a=password
         print('密码可用，再次输入')
         password=input('请输入密码：')
         if password==a:
             print('密码可用')
-            global   b
-            b=1
-            return password
+            global   password_b
+            password_b=1#用于判断是否需要核对密码
+            password_a==1#打卡标记专用
+            global  globalpassword
+            globalpassword=password
+            return globalpassword
+            break
+           
         else:
             print('两次输入不一致')
             return my_password(password)
+ #return password
 
-b=0
-for i in range(3):
-    if b==1:
-     break
-    password=input('请输入密码:')
-    my_password(password)
-b=0
-print('密码可用')
+my_password(password_a=0)
+print(globalpassword)
 #try...except...else...finally
 import traceback
 try:
