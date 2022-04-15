@@ -381,13 +381,18 @@ def my_min(list):
         if i<min:
             min=i
     return min
-d=(list_age)
+
 #获取列表的平均值
 def my_average(list):
     sum=0
     for i in list:
         sum+=i
     return sum/len(list)
+list1=[x for x in range(1,10,2)]
+a=sum(list1)/len(list1)
+print(a)
+print(my_average(list1))
+
 #质因式分解
 def my_zysfj(n=100):
     list_zysfj=[]    
@@ -413,11 +418,11 @@ def my_zysfj(n=100):
     if a==0:
       print('%d是素数'%b)
     else:
-      print('%d的因式分解为%s'%(b,c))
+      print('%d的因式分解为%s'%(b,c))#%s是字符串 %d是整数  %f是浮点数 %.2f是保留两位小数 %.3f是保留三位小数 
     return c
 
 print(my_zysfj())
-print(c)
+print(c,type(c))
 #解yython中的练习题
 #1.输入一个数字，判断是否是素数
 def my_prime(n=100):    
@@ -458,9 +463,7 @@ def my_min(list):
         if i<min:
             min=i
     return min
-list=[]
-for i in range(3):
-    list.append(int(input('请输入一个数字:')))
+
 print(my_min(list))
 #输入几个数字，输出平均值
 def my_average(list):
@@ -468,10 +471,10 @@ def my_average(list):
     for i in list:
         sum+=i
     return sum/len(list)
-list=[]
+list1=[]
 for i in range(3):
-    list.append(int(input('请输入一个数字:')))
-print(my_average(list))
+    list1.append(int(input('请输入一个数字:')))
+print(my_average(list1))
 #输入一个数字，输出该数字的因式分解
 def my_factor(n):
     b=n
@@ -535,7 +538,7 @@ def my_password(password_a=0):
             global  globalpassword
             globalpassword=password
             return globalpassword
-            break
+            break#也s可以用在开头处判别打卡参数的方法
            
         else:
             print('两次输入不一致')
@@ -575,6 +578,29 @@ class MyClass:
         return a*b
     def my_div(self,a,b):
         return a/b
+    def my_mod(self,a,b):
+        return a%b
+    def my_pow(self,a,b):
+        return a**b
+    def my_max(self,a,b):
+        return max(a,b)
+    def my_min(self,a,b):
+        return min(a,b)
+    def my_average(self,a,b):
+        return (a+b)/2
+    def my_factor(self,a):
+        for i in range(1,a+1):
+            if a%i==0:
+                print('%d的因数是%d'%(a,i))
+                break
+    def my_prime(self,a):
+        for i in range(2,a):
+            if a%i==0:
+                print('%d不是素数'%a)
+                break
+        else:
+            print('%d是素数'%a)
+   
 class MyClass2(MyClass):
     def __init__(self,name,age,):
         super().__init__(name,age)
@@ -614,3 +640,102 @@ class_1.my_class_method()
 class_2.my_class_method()
 #继承
 #继承的基本原理
+list1=list(range(1,10))
+a=min(list1)
+print(a)
+class Mylist:
+    def __init__(self,list1):
+        self.list1=list1
+    def my_min(self):
+        return min(self.list1)
+    def my_max(self):
+        return max(self.list1)
+    def my_average(self):
+        return sum(self.list1)/len(self.list1)
+    def my_sum(self):
+        return sum(self.list1)
+    def my_len(self):
+        return len(self.list1)
+    def my_count(self,a):
+        return self.list1.count(a)
+    def my_index(self,a):
+        return self.list1.index(a)
+    def my_append(self,a):
+        self.list1.append(a)
+    def my_insert(self,a,b):
+        self.list1.insert(a,b)
+    def my_remove(self,a):
+        self.list1.remove(a)
+    def my_pop(self,a):
+        self.list1.pop(a)
+    def my_clear(self):
+        self.list1.clear()
+    def my_reverse(self):
+        self.list1.reverse()
+    def my_sort(self):
+        self.list1.sort()
+    def my_copy(self):
+        return self.list1.copy()
+    def my_extend(self,a):
+        self.list1.extend(a)
+    def my_count(self,a):
+        return self.list1.count(a)
+    def my_index(self,a):
+        return self.list1.index(a)
+    def my_append(self,a):
+        self.list1.append(a)
+    def my_insert(self,a,b):
+        self.list1.insert(a,b)
+    def my_remove(self,a):
+        self.list1.remove(a)
+    def my_pop(self,a):
+        self.list1.pop(a)
+    def my_clear(self):
+        self.list1.clear()
+    def my_reverse(self):
+        self.list1.reverse()
+    def my_sort(self):
+        self.list1.sort()
+    def my_copy(self):
+        return self.list1.copy()    
+class MyList(list):
+    #def __init__(self,*args):
+        #super().__init__(*args)
+    def my_print(self):
+        print(self)
+    def my_add(self,a,b):
+        return a+b
+    def my_sub(self,a,b):
+        return a-b
+    def my_mul(self,a,b):
+        return a*b
+    def my_div(self,a,b):
+        return a/b
+    def my_mod(self,a,b):
+        return a%b
+    def my_pow(self,a,b):
+        return a**b
+    def my_max(self,a,b):
+        return max(a,b)
+    def my_min(self,a,b):
+        return min(a,b)
+    def my_average(self,a,b):
+        return (a+b)/2
+    def my_factor(self,a):
+        for i in range(1,a+1):
+            if a%i==0:
+                print('%d的因数是%d'%(a,i))
+                break
+    def my_prime(self,a):
+        for i in range(2,a):
+            if a%i==0:
+                print('%d不是素数'%a)
+                break
+        else:
+            print('%d是素数'%a)
+#实例化类
+list_1=MyList(list1)
+a=my_average(list_1)
+print(a)
+
+
