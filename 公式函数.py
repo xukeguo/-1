@@ -50,7 +50,38 @@ for i in range(2,100):
         if i%j==0:
           set1.discard(i)
 print(set1)
+#判断是否为回文数 
+def is_palindrome(n):
+    if n<0:
+        return False
+    if n==0:
+        return True
+    if n==1:
+        return True
+    else:
+        return is_palindrome(n//10) and n%10==n//10%10
 
+print(is_palindrome(12321))
+#判断是质数
+def is_prime(n):
+    for i in range(2,n):
+        if n%i==0:
+            return False
+    else:
+        return True
+    
+print(is_prime(21))
+
+def is_prime(n):
+    for i in range(2,n):
+        if n%i!=0:
+            continue
+        else:
+           return False#结束程序并返回False
+    else:
+        return True
+print(is_prime(17))
+#质数序列
 def myfun(N=100):#不可变参数
     list1=[]
     n=int(input("请输入一个数字："))
@@ -400,10 +431,8 @@ def my_zysfj(n=100):
     b=n
     a=0
     print(b)
-    
     for i in range(2,n):
-        if n%i==0:
-            for j in range(1,b):
+      for j in range(2,b):
                 if n%i!=0:
                  break
                 else:
@@ -411,8 +440,6 @@ def my_zysfj(n=100):
                     list_zysfj.append(i)           
                     n=n/i
                     a=1
-
-
     global c
     c=list_zysfj
     if a==0:
@@ -422,7 +449,22 @@ def my_zysfj(n=100):
     return c
 
 print(my_zysfj())
-print(c,type(c))
+#因式分解二 优化
+def my_zysfj(n=100):
+    list_zysfj=[]    
+    b=n
+    for i in range(2,b+1):
+      for j in range(2,b+1):
+                if n%i!=0:
+                 break#跳出当前循环
+                else:
+                    list_zysfj.append(i)           
+                    n=n/i             
+    global list_zysfj1
+    list_zysfj1=list_zysfj
+    return list_zysfj1
+print(my_zysfj(97))
+print(list_zysfj1,type(list_zysfj1))
 #解yython中的练习题
 #1.输入一个数字，判断是否是素数
 def my_prime(n=100):    
@@ -737,5 +779,18 @@ class MyList(list):
 list_1=MyList(list1)
 a=my_average(list_1)
 print(a)
+class mylist:
+    pass
+class mylist(list):
+    pass
+mylist_1=mylist([1,2,3,4,5])
+print(len(mylist_1))
+print(mylist_1,type(mylist_1)) 
+#类的继承
+#继承的基本原理
+#父类的方法，子类的方法，父类的属性，子类的属性
+#父类的方法，子类的方法，父类的属性，子类的属性
+
+
 
 
