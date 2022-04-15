@@ -51,15 +51,21 @@ for i in range(2,100):
           set1.discard(i)
 print(set1)
 
-list1=[]
-for i in range(2,100):
-    for j in range(2,i):
-        if i%j==0:
+def myfun(N=100):#不可变参数
+    list1=[]
+    n=int(input("请输入一个数字："))
+    for i in range(2,n):
+       for j in range(2,i):
+         if i%j==0:
             break
-    else:
+       else:
         list1.append(i) 
         
-print(list1)
+    global c
+    c=list1
+
+myfun()
+print(c)
 
        
 #素数 正向思维
@@ -383,8 +389,9 @@ def my_average(list):
         sum+=i
     return sum/len(list)
 #质因式分解
-
-def my_factor(n):
+def my_zysfj(n=100):
+    list_zysfj=[]    
+    n=int(input('请输入一个数字:'))
     b=n
     a=0
     print(b)
@@ -396,30 +403,33 @@ def my_factor(n):
                  break
                 else:
                     print(i)
-                    list8.append(i)           
+                    list_zysfj.append(i)           
                     n=n/i
                     a=1
-   
+
+
+    global c
+    c=list_zysfj
     if a==0:
       print('%d是素数'%b)
     else:
-      print('%d的因式分解为%s'%(b,list8))
-      return list8
-list8=[]        
-n=int(input('请输入一个数字:'))
-print(my_factor(n))
-print(list8)
+      print('%d的因式分解为%s'%(b,c))
+    return c
+
+print(my_zysfj())
+print(c)
 #解yython中的练习题
 #1.输入一个数字，判断是否是素数
-def my_prime(n):    
+def my_prime(n=100):    
+    n=int(input('请输入一个数字:'))
     for i in range(2,n):
         if n%i==0:
             print('%d不是素数'%n)
             break
     else:
-        print('%d是素数'%n)
-n=int(input('请输入一个数字:'))
-my_prime(n)
+     print('%d是素数'%n)
+
+my_prime()
 #解方程
 def my_equation(a,b,c):
     import math
