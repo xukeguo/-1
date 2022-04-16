@@ -698,6 +698,8 @@ class Student:
         self.addr=address
     def study(self):
         print('%s正在学习'%self.name)
+    def nameage(self):
+         print('%s'% self.name)
     def eat(self):
         print('%s正在吃饭'%self.name)
     def sleep(self):
@@ -717,18 +719,22 @@ class Teacher:
         print('%s正在吃饭'%self.name)
     def sleep(self):
         print('%s正在睡觉'%self.name)
+    def nameage(self):
+        return '%s'% self.name
 class Student_teacher(Student,Teacher):
-    def __init__(self,name,age,address):
-        super().__init__(name,age,address)
-    def study(self):
-        print('%s正在学习'%self.name)
-    def eat(self):
-        print('%s正在吃饭'%self.name)
-    def sleep(self):
-        print('%s正在睡觉'%self.name)
+        
+        def __new__(cls, *args, **kwargs):
+            #类方法
+            print('__new__')
+            return super().__new__(cls)
 
-stu=Student_teacher('张三',18,'北京')
-
+        def __init__(self,name,age,address):
+            #继承父类的属性
+               super().__init__(name,age,address)
+stu1=Student('张三',18,'北京')
+stu=Student(9,4,9)
+stu1.nameage()
+print(stu.nameage())
 stu.eat()
 stu.sleep()
 print(stu.whiteage())
@@ -737,4 +743,20 @@ print(dir(stu))#获取对象的属性和方法
 print(stu._Student__age)#私有属性
 #类的继承
 
-
+import copy
+#浅拷贝   只拷贝父类的属性
+list1=[1,2,3,[4,5]]
+list4=list1[2]
+print(list4)
+list2=copy.copy(list1)
+list2[3][0]=100# list1[3][0]也会变成100
+print(list1)#
+print(list2)
+#深拷贝           
+list3=copy.deepcopy(list1)
+list3[3][0]=200#
+print(list1)#
+print(list3)
+#类的继承
+#继承的基本原理
+#父类的方法，子类的方法，父类的属性，子类的属性

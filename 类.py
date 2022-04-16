@@ -1,5 +1,5 @@
 #我的列表类
-from multiprocessing.sharedctypes import Value
+from multiprocessing.sharedctypes import Value#导入Value类
 
 
 class Mylist:
@@ -275,6 +275,10 @@ dic.my_find(1)
 class Myfilter:
     pass
 class Myfilter(filter):
+    def __init__(self, func, iterable):
+       super().__init__(func, iterable)
+       filter.__init__(self, func, iterable)
+
     def my_filter(self, value):
         return self.filter(value)
     def my_map(self, value):
