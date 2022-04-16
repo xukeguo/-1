@@ -692,19 +692,25 @@ print(a)
 #父类的方法，子类的方法，父类的属性，子类的属性
 
 class Student:
-    def __init__(self,name,age):
+    def __init__(self,name,age,address):
         self.name=name
-        self.age=age
+        self.__age=age#私有属性
+        self.addr=address
     def study(self):
         print('%s正在学习'%self.name)
     def eat(self):
         print('%s正在吃饭'%self.name)
     def sleep(self):
         print('%s正在睡觉'%self.name)
+    def whiteage(self):
+        print('%s的年龄是%d'%(self.name,self.__age))
+    def whteaddr(self):
+        return '%s的地址是%s'%(self.name,self.addr)
 class Teacher:
-    def __init__(self,name,age):
+    def __init__(self,name,_age,address):
         self.name=name
-        self.age=age
+        self.age=_age
+        self.addr=address
     def teach(self):
         print('%s正在教学'%self.name)
     def eat(self):
@@ -712,8 +718,8 @@ class Teacher:
     def sleep(self):
         print('%s正在睡觉'%self.name)
 class Student_teacher(Student,Teacher):
-    def __init__(self,name,age):
-        super().__init__(name,age)
+    def __init__(self,name,age,address):
+        super().__init__(name,age,address)
     def study(self):
         print('%s正在学习'%self.name)
     def eat(self):
@@ -721,14 +727,14 @@ class Student_teacher(Student,Teacher):
     def sleep(self):
         print('%s正在睡觉'%self.name)
 
-stu=Student_teacher('张三',18)
-stu.study()
-stu.eat()
-stu.sleep()
-stu.teach()
-stu.eat()
-stu.sleep()
+stu=Student_teacher('张三',18,'北京')
 
+stu.eat()
+stu.sleep()
+print(stu.whiteage())
+print(stu.whteaddr())
+print(dir(stu))#获取对象的属性和方法
+print(stu._Student__age)#私有属性
 #类的继承
 
 

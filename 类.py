@@ -97,7 +97,7 @@ class Myint(int):
         return value / self
     def my_zfill(self, value):
         return self.zfill(value)
-    def my_zysfj(self):
+    def my_prime(self):#质因数分解
         list_zysfj=[]    
         b=self
         for i in range(2,self+1):
@@ -152,23 +152,43 @@ class Myint(int):
         return value % self
     def my_rpow(self, value):
         return value ** self
-    def my_rfloordiv(self, value):
+    def my_rfloordiv(self, value):#取整除
         return value // self
-a=Myint(55)
+    def my_rtruediv(self, value):#真除
+        return value / self
+    def my_rlshift(self, value):# 左移
+        return value << self
+    def my_rrshift(self, value):#右移
+        return value >> self
+    def my_pos(self):#正数
+        return +self
+    def my_neg(self):#负数
+        return -self
+    def my_isprime(self):#是否为素数
+        for i in range(2,self):
+         if self%i==0:
+            return False
+        else:
+         return True
+
+
+
+a=Myint(97)
 b=5
-c=32
+c=756
 c=Myint(c)
-print(Myint.my_zysfj(b))
-print(a.my_zysfj())
-print(Myint(b).my_zysfj())
+print(Myint.my_prime(c))
+print(a.my_prime())
+print(Myint(b).my_prime())
+print(Myint.my_isprime(107))
 #print(Myint.my_zysfj(c))
 #我的字典类型
 class Mydict:
     pass
 class Mydict(dict):
-    def my_get(self, key):
+    def my_get(self, key):#获取
         return self.get(key)
-    def my_set(self, key, value):
+    def my_set(self, key, value):#设置
         self.set(key, value)
     def my_items(self):
         return self.items()
@@ -221,7 +241,23 @@ class Mydict(dict):
         for x, y in self.items():
            if y == min_sum:
               print(x, y)
-   
+    def my_find(self, value):
+        for i, j in self.items():
+            if j == value:
+                print(i, j)
+    def my_find_all(self, value):
+        for i, j in self.items():
+            if j == value:
+                print(i, j)
+    def my_find_all_key(self, value):
+        for i, j in self.items():
+            if i == value:
+                print(i, j)
+    def my_filter(self, value):
+        for i, j in self.items():
+            if j == value:
+                print(i, j)
+
     
 dic=Mydict({'a':1,'b':1,'c':3,'d':5,'e':5})
 name_dic=list({'zhangsan','lisi','wangwu','zhaoliu','zhaoliu'})
@@ -233,4 +269,216 @@ print(dic.my_get('d',5))
 print(dic.my_get('f'))
 print(max(dic))
 dic.my_maxx()
-dic.my_minx()
+dic.my_find(1)
+
+#我的filter类型
+class Myfilter:
+    pass
+class Myfilter(filter):
+    def my_filter(self, value):
+        return self.filter(value)
+    def my_map(self, value):
+        return self.map(value)
+    def my_reduce(self, value):
+        return self.reduce(value)
+    def my_zip(self, value):
+        return self.zip(value)
+    def my_sorted(self, value):
+        return self.sorted(value)
+    def my_list(self, value):
+        return self.list(value)
+    def my_tuple(self, value):
+        return self.tuple(value)
+    def my_set(self, value):
+        return self.set(value)
+    def my_sum(self, value):
+        return self.sum(value)
+    def my_any(self, value):
+        return self.any(value)
+    def my_all(self, value):#判断是否全部为真
+        return self.all(value)
+    def my_enumerate(self, value):#枚举
+        return self.enumerate(value)
+    def my_reversed(self, value):#反转
+        return self.reversed(value)
+    def my_sorted(self, value):
+        return self.sorted(value)
+    def my_list(self, value):#转换为列表
+        return self.list(value)
+    def my_tuple(self, value):#转换成元组
+        return self.tuple(value)
+    def my_set(self, value):#集合
+        return self.set(value)
+    def my_sum(self, value):
+        return self.sum(value)
+    def my_any(self, value):#判断是否有真值
+        return self.any(value)
+    def my_all(self, value):#判断是否全部为真
+        return self.all(value)
+    def my_enumerate(self, value):#枚举
+        return self.enumerate(value)
+    def my_reversed(self, value):
+        return self.reversed(value)
+    def my_sorted(self, value):
+        return self.sorted(value)
+    def my_list(self, value):
+        return self.list(value)
+
+#我的map类型
+class Mymap:
+    pass
+class Mymap(map):
+
+    def my_map(self, value):
+        return self.map(value)
+    def my_filter(self, value):
+        return self.filter(value)
+    def my_reduce(self, value):
+        return self.reduce(value)
+    def my_zip(self, value):
+        return self.zip(value)
+    def my_sorted(self, value):
+        return self.sorted(value)
+    def my_list(self, value):
+        return self.list(value)
+    def my_tuple(self, value):
+        return self.tuple(value)
+    def my_set(self, value):
+        return self.set(value)
+    def my_sum(self, value):
+        return self.sum(value)
+    def my_any(self, value):
+        return self.any(value)
+    def my_all(self, value):
+        return self.value
+    def my_enumerate(self, value):
+        return self.enumerate(value)
+    def my_reversed(self, value):
+        return self.reversed(value)
+    def my_sorted(self, value):
+        return self.sorted(value)
+    def my_list(self, value):
+        return self.list(value)
+    def my_tuple(self, value):
+        return self.tuple(value)
+    def my_set(self, value):
+        return self.set(value)
+    def my_sum(self, value):
+        return self.sum(value)
+    def my_any(self, value):
+        return self.any(value)
+    def my_all(self, value):
+        return self.all(value)
+    def my_enumerate(self, value):
+        return self.enumerate(value)
+    def my_reversed(self, value):
+        return self.reversed(value)
+    def my_sorted(self, value):
+        return self.sorted(value)
+
+#我的reduce类型
+
+    def my_map(self, value):
+        return self.map(value)
+    def my_filter(self, value):
+        return self.filter(value)
+    def my_reduce(self, value):
+        return self.reduce(value)
+    def my_zip(self, value):
+        return self.zip(value)
+    def my_sorted(self, value):
+        return self.sorted(value)
+    def my_list(self, value):
+        return self.list(value)
+    def my_tuple(self, value):
+        return self.tuple(value)
+    def my_set(self, value):
+        return self.set(value)
+    def my_sum(self, value):
+        return self.sum(value)
+    def my_any(self, value):
+        return self.any(value)
+    def my_all(self, value):
+        return self.all(value)
+    def my_enumerate(self, value):
+        return self.enumerate(value)
+    def my_reversed(self, value):
+        return self.reversed(value)
+    def my_sorted(self, value):
+        return self.sorted(value)
+    def my_list(self, value):
+        return self.list(value)
+    def my_tuple(self, value):
+        return self.tuple(value)
+    def my_set(self, value):
+        return self.set(value)
+    def my_sum(self, value):
+        return self.sum(value)
+    def my_any(self, value):
+        return self.any(value)
+    def my_all(self, value):
+        return self.all(value)
+    def my_enumerate(self, value):
+        return self.enumerate(value)
+    def my_reversed(self, value):
+        return self.reversed(value)
+    def my_sorted(self, value):
+        return self.sorted(value)
+#我的set类型
+class Myset:
+    pass
+class Myset(set):
+
+    
+        def my_map(self, value):#map
+            return self.map(value)
+        def my_filter(self, value):#filter
+            return self.filter(value)
+        def my_reduce(self, value):
+            return self.reduce(value)
+        def my_zip(self, value):
+            return self.zip(value)
+        def my_sorted(self, value):
+            return self.sorted(value)
+        def my_list(self, value):
+            return self.list(value)
+        def my_tuple(self, value):
+            return self.tuple(value)#元组
+        def my_set(self, value):
+            return self.set(value)
+        def my_sum(self, value):
+            return self.sum(value)
+        def my_any(self, value):#判断是否有真值
+            return self.any(value)
+        def my_all(self, value):#判断是否全部为真
+            return self.all(value)
+        def my_enumerate(self, value):#枚举
+            return self.enumerate(value)
+        def my_reversed(self, value):
+            return self.reversed(value)
+        def my_sorted(self, value):
+            return self.sorted(value)
+        def my_list(self, value):
+            return self.list(value)
+        def my_tuple(self, value):
+            return self.tuple(value)
+        def my_set(self, value):
+            return self.set(value)
+        def my_sum(self, value):#求和
+            return self.sum(value)
+        def my_any(self, value):
+            return self.any(value)
+        def my_all(self, value):
+            return self.all(value)
+        def my_enumerate(self, value):
+            return self.enumerate(value)
+        def my_reversed(self, value):
+            return self.reversed(value)
+        def my_sorted(self, value):
+            return self.sorted(value)
+        def my_list(self, value):#我的list类型
+            return self.list(value)
+a=Myset([1,4,3,6]+[2,5,7])
+print(a.add(7))
+print(a.remove(4))
+print(a)
