@@ -1,10 +1,13 @@
-#列表类
-class mylist:
+#我的列表类
+from multiprocessing.sharedctypes import Value
+
+
+class Mylist:
     #def __init__(self, value):
        # self.value = value
        # self.next = None
         pass
-class mylist(list):
+class Mylist(list):
     def __init__(self, value):
         super().__init__(value)
         self.value = value
@@ -37,7 +40,7 @@ class mylist(list):
         return sum(self)/len(self)
     def my_append(self, value):
         self.append(value)
-    def my_insert(self, index, value):
+    def my_insert(self, index, value):#插入
         self.insert(index, value)
     def my_remove(self, value):
         self.remove(value)
@@ -63,7 +66,7 @@ class mylist(list):
         return self.count(value)
     def my_count(self, value):
         return self.count(value)
-lis=mylist([1,2,3,4,5])
+lis=Mylist([1,2,3,4,5])
 print(lis.my_avg())
 lis.append(6)
 print(lis.my_av())
@@ -74,12 +77,12 @@ print(lis.my_sum())
 
 #!/usr/bin/env python3
 # Path: 类.py
-#数据类型
+#我的数据类型
 
-class myint:
+class Myint:
     
     pass
-class myint(int):
+class Myint(int):
     '''def __init__(self, value):
         super().__init__(value)
         self.value = value'''
@@ -97,8 +100,8 @@ class myint(int):
     def my_zysfj(self):
         list_zysfj=[]    
         b=self
-        for i in range(2,self):
-              for j in range(2,b):
+        for i in range(2,self+1):
+              for j in range(2,b+1):
                 if self%i!=0:
                  break
                 else:
@@ -151,6 +154,83 @@ class myint(int):
         return value ** self
     def my_rfloordiv(self, value):
         return value // self
-a=myint(55)
-print(type(a))
+a=Myint(55)
+b=5
+c=32
+c=Myint(c)
+print(Myint.my_zysfj(b))
 print(a.my_zysfj())
+print(Myint(b).my_zysfj())
+#print(Myint.my_zysfj(c))
+#我的字典类型
+class Mydict:
+    pass
+class Mydict(dict):
+    def my_get(self, key):
+        return self.get(key)
+    def my_set(self, key, value):
+        self.set(key, value)
+    def my_items(self):
+        return self.items()
+    def my_keys(self):
+        return self.keys()
+    def my_values(self):
+        return self.values()
+    def my_pop(self, key):#删除
+        return self.pop(key)
+    def my_popitem(self):#随机删除
+        return self.popitem()
+    def my_update(self, value):
+        self.update(value)
+    def my_clear(self):
+        self.clear()
+    def my_copy(self):
+        return self.copy()
+    def my_fromkeys(self, value):
+        return self.fromkeys(value)
+    def my_get(self, key):
+        return self.get(key)
+    def my_setdefault(self, key, value):#设置默认值
+        return self.setdefault(key, value)
+    def my_fromkeys(self, value):
+        return self.fromkeys(value)
+    def my_get(self, key,default=None):
+        return self.get(key)
+    def my_setdefault(self, key, value):
+        return self.setdefault(key, value)
+    def my_pop(self, key):
+        return self.pop(key)
+    def my_popitem(self):
+        return self.popitem()
+    def my_update(self, value ):
+        self.update(value)
+    def my_clear(self):
+        self.clear()
+    def my_maxx(self):
+        for i, j in self.items():
+           if i == max(self):  # 判断x是否在字典中
+              sum1 = j
+        for i, j in self.items():
+           if j == sum1:
+               print(i, j)
+
+    def my_minx(self):
+        for x, y in self.items():
+           if x == min(self):
+                min_sum = y
+        for x, y in self.items():
+           if y == min_sum:
+              print(x, y)
+   
+    
+dic=Mydict({'a':1,'b':1,'c':3,'d':5,'e':5})
+name_dic=list({'zhangsan','lisi','wangwu','zhaoliu','zhaoliu'})
+age_dict=list({15,20,25,30,35})
+scor_dic=list({88,88,100,90,100})
+dict2=Mydict({x:[y,z] for x,y,z in zip(name_dic,age_dict,scor_dic)})
+print(dic.my_get('a'))
+print(dic.my_get('d',5))
+print(dic.my_get('f'))
+print(max(dic))
+dic.my_maxx()
+dic.my_minx()
