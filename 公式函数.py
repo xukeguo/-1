@@ -373,7 +373,7 @@ def myfun1(*a,**b):#可变参数与关键字参数 可以同时使用 可变参�
     print(a[0])
     for i in b:
         if i=='name':
-            print(b[i])
+            print('%s' %i,b[i])
 dict1={'name':'zhangsan','age':18,'score':100} 
 myfun1(1,2,dict1)#字典也不可以作为关键字可变参数
 print(myfun1(1,2,3,4,5,name='zhangsan',age=18,score=110))
