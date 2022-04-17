@@ -787,7 +787,7 @@ def test2():
 test1()
 test2()
 
-
+#读秒程序   
 import time
 class Clock(object):
     def __init__(self,hour=0,minute=0,second=0):
@@ -809,7 +809,12 @@ class Clock(object):
 
 a=Clock( 23,59,59)
 while True:
-    #读秒程序
+    print(a.show())
+    time.sleep(1)
+    a.run()
+
+    
+
 import time
 def timer(func):#装饰器
     def wrapper(*args,**kwargs):
@@ -864,7 +869,7 @@ class Clock(object):
     def show(self):
         return '%02d:%02d:%02d'%(self._hour,self._minute,self._second)
 
-a=Clock( 23,59,59)
+a=Clock( 00,10,59)
 while True:
     print(a.show())
     time.sleep(1)
