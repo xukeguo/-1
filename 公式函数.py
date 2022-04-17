@@ -812,65 +812,177 @@ while True:
     print(a.show())
     time.sleep(1)
     a.run()
+# 微信群管理系统 
+class Wechat(object):
+    def __init__(self,name):
+        self.name=name
+        self.members=[]
+    def add_member(self,member):
+        self.members.append(member)
+    def show_members(self):
+        for member in self.members:
+            print(member)
+    def send_message(self,message):
+        for member in self.members:
+            member.receive_message(message)
+    def __str__(self):
+        return '%s'%self.name    
+    def __repr__(self):
+            return '%s'%self.name
 
-    
+class Member(object):
+    def __init__(self,name):
+        self.name=name
+    def receive_message(self,message):
+        print('%s收到消息：%s'%(self.name,message))
+def main():
+    wechat=Wechat('python')
+    wechat.add_member(Member('张三'))
+    wechat.add_member(Member('李四'))
+    wechat.add_member(Member('王五'))
+    wechat.send_message('你好')
+    wechat.show_members()
+if __name__=='__main__':
+    main()
 
-import time
-def timer(func):#装饰器
-    def wrapper(*args,**kwargs):
-        start_time=time.time()
-        func(*args,**kwargs)
-        stop_time=time.time()
-        print('the func run time is %s'%(stop_time-start_time))
-    return wrapper
-@timer
-def test1():
-    time.sleep(3)
-    print('in the test1')
-@timer
-def test2():
-    time.sleep(3)
-    print('in the test2')
-test1()
-test2()
+# 加入群组
+# 退出群组
+# 删除群组
+# 查看群组
+# 查看群成员
+# 查看群消息
+# 发送群消息
+# 创建好友
+# 删除好友
+# 查看好友
+# 发送好友消息
+# 创建聊天室
+# 加入聊天室
+# 退出聊天室
+# 删除聊天室
+# 查看聊天室
+# 查看聊天室成员
+# 发送聊天室消息
+# 创建聊天室管理员
+# 删除聊天室管理员
+# 查看聊天室管理员
+# 创建聊天室成员
+# 删除聊天室成员
+# 查看聊天室成员
+# 发送聊天室成员消息
+#微积分
+import math
+def f(x):
+    return x**3-2*x-1
+def df(x):
+    return 3*x**2-2
+def newton(x):
+    epsilon=0.00001
+    while True:
+        delta=f(x)/df(x)
+        x=x-delta
+        if abs(delta)<epsilon:
+            break
+    return x
+print(newton(1))
+# 分段函数
+def f(x):
+    if x<-2:
+        return 1
+    if x<=2:
+        return x
+    return 0
+def trapezoidal(a,b,n):
+    h=(b-a)/n
+    s=0.5*(f(a)+f(b))
+    for i in range(1,n):
+        s+=f(a+i*h)
+    return s*h
+print(trapezoidal(-2,2,100))
+# 梯形函数
+def trapezoidal(a,b,n):
+    h=(b-a)/n
+    s=0.5*(f(a)+f(b))
+    for i in range(1,n):
+        s+=f(a+i*h)
+    return s*h
+print(trapezoidal(-2,2,100))
+# 导数
+def f(x):
+    return x**3-2*x-1
+def df(x):
+    return 3*x**2-2
+def newton(x):
+    epsilon=0.00001
+    while True:
+        delta=f(x)/df(x)
+        x=x-delta
+        if abs(delta)<epsilon:
+            break
+    return x
+print(newton(1))
+#打一个圆
+import turtle
+turtle.circle(200)
+#打一个正方形
+import turtle
+turtle.forward(100)
+turtle.left(120)
+turtle.forward(100)
+turtle.left(120)
+turtle.forward(100)
+turtle.left(120)
+turtle.forward(100)
+#打一个三角形
+import turtle
+turtle.forward(100)
+turtle.left(120)
+turtle.forward(100)
+turtle.left(120)
+turtle.forward(100)
+#打一个五角形
+import turtle
+turtle.forward(100)
+turtle.left(72)
+turtle.forward(100)
+turtle.left(72)
+turtle.forward(100)
+turtle.left(72)
+turtle.forward(100)
+turtle.left(72)
+turtle.forward(100)
+#打一抛物线
+# import turtle
+# turtle.penup()
+#打一个椭圆
+import turtle
+turtle.circle(900,1000)
+#打一个矩形
+import turtle
+turtle.forward(100)
+turtle.left(90)
+turtle.forward(100)
+turtle.left(90)
+turtle.forward(100)
+turtle.left(90)
+turtle.forward(100)
 
-def timer(func):
-    def wrapper(*args,**kwargs):
-        start_time=time.time()
-        func(*args,**kwargs)
-        stop_time=time.time()
-        print('the func run time is %s'%(stop_time-start_time))
-    return wrapper
-@timer
-def test1():
-    time.sleep(3)
-    print('in the test1')
-@timer
-def test2():
-    time.sleep(3)
-    print('in the test2')
 
-import time
-class Clock(object):
-    def __init__(self,hour=0,minute=0,second=0):
-        self._hour=hour
-        self._minute=minute
-        self._second=second
-    def run(self):
-        self._second+=1
-        if self._second==60:
-            self._second=0
-            self._minute+=1
-            if self._minute==60:
-                self._minute=0
-                self._hour+=1
-                if self._hour==24:
-                    self._hour=0
-    def show(self):
-        return '%02d:%02d:%02d'%(self._hour,self._minute,self._second)
 
-a=Clock( 00,10,59)
-while True:
-    print(a.show())
-    time.sleep(1)
-    a.run()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
