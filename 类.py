@@ -379,7 +379,7 @@ class Mymap(map):
         return self.reversed(value)
     def my_sorted(self, value):
         return self.sorted(value)
-
+print(str(map))
 #我的reduce类型
 
     def my_map(self, value):
@@ -505,6 +505,8 @@ class persons(object):
     def __init__(self,name,age):
         self.name=name
         self.age=age
+    def __str__(self,name,age):#
+        return 'name:%s,age:%s'%(self.name,self.age)#
     def info (self):
         print('name:%s,age:%s'%(self.name,self.age))
 class student(persons):
@@ -513,14 +515,101 @@ class student(persons):
         self.score=score
     def infostu(self):
         print('name:%s,age:%s,score:%s'%(self.name,self.age,self.score))
+    def info1(self):
+        super().info()
+        print('score:%s'%(self.score))
+
 class teacher(persons):
-    def __init__(self,name,age,salary):
+    def __init__(self,name,age,salary):#
         super().__init__(name,age)
         self.salary=salary
     def infotea(self):
         print('name:%s,age:%s,salary:%s'%(self.name,self.age,self.salary))
 a=student('a',18,100)
+a.info()
+a.info1()
 a.infostu()
-b=teacher('b',18,1000)
+b=teacher('b',38,1000)
+b.info()
 b.infotea()
+#多态
+class Animal:
+    def run(self):
+        print('Animal is running')  
+class Dog(Animal):
+    def run(self):
+        print('Dog is running')
+class Cat(Animal):
+    def run(self):
+        print('Cat is running')
+class Tortoise(Animal):
+    def run(self):
+        print('Tortoise is running')
+class Runnable:
+    def run(self):
+        print('Running...')
+class TortoiseRunnable(Runnable,Tortoise):
+    pass
+class CatRunnable(Cat,Runnable):
+    pass
+class DogRunnable(Dog,Runnable):
+    pass
+#
+
+a=TortoiseRunnable()    
+a.run()
+b=CatRunnable()
+b.run()
+c=DogRunnable()
+c.run()
+def fun(object):
+    object.run()
+fun(Animal())
+#读秒程序
+import time
+def timer(func):#装饰器
+    def wrapper(*args,**kwargs):
+        start_time=time.time()
+        func(*args,**kwargs)
+        stop_time=time.time()
+        print('the func run time is %s'%(stop_time-start_time))
+    return wrapper
+@timer
+def test1():
+    time.sleep(3)
+    print('in the test1')
+@timer
+def test2():
+    time.sleep(3)
+    print('in the test2')
+test1()
+test2()
+
+
+'''import time
+class Clock(object):
+    def __init__(self,hour=0,minute=0,second=0):
+        self._hour=hour
+        self._minute=minute
+        self._second=second
+    def run(self):
+        self._second+=1
+        if self._second==60:
+            self._second=0
+            self._minute+=1
+            if self._minute==60:
+                self._minute=0
+                self._hour+=1
+                if self._hour==24:
+                    self._hour=0
+    def show(self):
+        return '%02d:%02d:%02d'%(self._hour,self._minute,self._second)
+
+a=Clock( 23,59,59)
+while True:
+    print(a.show())
+    time.sleep(1)
+    a.run()'''
 #类的继承
+
+
