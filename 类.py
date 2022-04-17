@@ -486,3 +486,41 @@ a=Myset([1,4,3,6]+[2,5,7])
 print(a.add(7))
 print(a.remove(4))
 print(a)
+
+class my:
+    def __new__(cls, *args, **kwargs):
+        return super().__new__(    *args, **kwargs)
+
+    def __init__(self,value,name,age):
+        self.value=value
+        self.name=name
+        self.age=age
+    def my_map(self, value):
+        return self.map(value)
+      
+a=my(1,'a',18)
+print(a.my_map(5))      
+#类的继承
+class persons(object):
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+    def info (self):
+        print('name:%s,age:%s'%(self.name,self.age))
+class student(persons):
+    def __init__(self,name,age,score):
+        super().__init__(name,age)
+        self.score=score
+    def infostu(self):
+        print('name:%s,age:%s,score:%s'%(self.name,self.age,self.score))
+class teacher(persons):
+    def __init__(self,name,age,salary):
+        super().__init__(name,age)
+        self.salary=salary
+    def infotea(self):
+        print('name:%s,age:%s,salary:%s'%(self.name,self.age,self.salary))
+a=student('a',18,100)
+a.infostu()
+b=teacher('b',18,1000)
+b.infotea()
+#类的继承

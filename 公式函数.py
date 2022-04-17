@@ -371,9 +371,12 @@ print(myfun(name='zhangsan',age=18,score=100))
 #自己定义函数   
 def myfun1(*a,**b):#可变参数与关键字参数 可以同时使用 可变参数必须在关键字参数之前 关键字参数必须在可变参数之后 
     print(a[0])
+# print(b['name'])'''
     for i in b:
         if i=='name':
-            print('%s' %i,b[i])
+            print('%s' %i,b[i])#输出
+        else:
+           pass
 dict1={'name':'zhangsan','age':18,'score':100} 
 myfun1(1,2,dict1)#字典也不可以作为关键字可变参数
 print(myfun1(1,2,3,4,5,name='zhangsan',age=18,score=110))
@@ -697,11 +700,11 @@ print(a)
 class Student:
     def __init__(self,name,age,address):
         self.name=name
-        self.__age=age#私有属性
+        self.age=age#私有属性
         self.addr=address
     def study(self):
         print('%s正在学习'%self.name)
-    def nameage(self):
+    def whitename(self):
          print('%s'% self.name)
     def eat(self):
         print('%s正在吃饭'%self.name)
@@ -736,10 +739,11 @@ class Student_teacher(Student,Teacher):
                super().__init__(name,age,address)
 stu1=Student('张三',18,'北京')
 stu=Student(9,4,9)
-stu1.nameage()
-print(stu.nameage())
+stu.whitename()
 stu.eat()
-stu.sleep()
+stu1.whitename()
+stu1.eat()
+stu1.sleep()
 print(stu.whiteage())
 print(stu.whteaddr())
 print(dir(stu))#获取对象的属性和方法
@@ -763,3 +767,4 @@ print(list3)
 #类的继承
 #继承的基本原理
 #父类的方法，子类的方法，父类的属性，子类的属性
+
