@@ -370,10 +370,13 @@ def myfun(**kw):#关键字可变参数
 print(myfun(name='zhangsan',age=18,score=100))
 #自己定义函数   
 def myfun1(*a,**b):#可变参数与关键字参数 可以同时使用 可变参数必须在关键字参数之前 关键字参数必须在可变参数之后 
-    print(a)
-    print(b)
-myfun1(1,2,3,4,5,name='zhangsan',age=18,score=100)
-print(myfun1(1,2,3,4,5,name='zhangsan',age=18,score=100))
+    print(a[0])
+    for i in b:
+        if i=='name':
+            print(b[i])
+dict1={'name':'zhangsan','age':18,'score':100} 
+myfun1(1,2,dict1)#字典也不可以作为关键字可变参数
+print(myfun1(1,2,3,4,5,name='zhangsan',age=18,score=110))
 
 #自己定义函数
 def myfun2(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z):
