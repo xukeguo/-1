@@ -767,4 +767,105 @@ print(list3)
 #类的继承
 #继承的基本原理
 #父类的方法，子类的方法，父类的属性，子类的属性
+#读秒程序
+import time
+def timer(func):#装饰器
+    def wrapper(*args,**kwargs):
+        start_time=time.time()
+        func(*args,**kwargs)
+        stop_time=time.time()
+        print('the func run time is %s'%(stop_time-start_time))
+    return wrapper
+@timer
+def test1():
+    time.sleep(3)
+    print('in the test1')
+@timer
+def test2():
+    time.sleep(3)
+    print('in the test2')
+test1()
+test2()
 
+
+import time
+class Clock(object):
+    def __init__(self,hour=0,minute=0,second=0):
+        self._hour=hour
+        self._minute=minute
+        self._second=second
+    def run(self):
+        self._second+=1
+        if self._second==60:
+            self._second=0
+            self._minute+=1
+            if self._minute==60:
+                self._minute=0
+                self._hour+=1
+                if self._hour==24:
+                    self._hour=0
+    def show(self):
+        return '%02d:%02d:%02d'%(self._hour,self._minute,self._second)
+
+a=Clock( 23,59,59)
+while True:
+    #读秒程序
+import time
+def timer(func):#装饰器
+    def wrapper(*args,**kwargs):
+        start_time=time.time()
+        func(*args,**kwargs)
+        stop_time=time.time()
+        print('the func run time is %s'%(stop_time-start_time))
+    return wrapper
+@timer
+def test1():
+    time.sleep(3)
+    print('in the test1')
+@timer
+def test2():
+    time.sleep(3)
+    print('in the test2')
+test1()
+test2()
+
+def timer(func):
+    def wrapper(*args,**kwargs):
+        start_time=time.time()
+        func(*args,**kwargs)
+        stop_time=time.time()
+        print('the func run time is %s'%(stop_time-start_time))
+    return wrapper
+@timer
+def test1():
+    time.sleep(3)
+    print('in the test1')
+@timer
+def test2():
+    time.sleep(3)
+    print('in the test2')
+
+import time
+class Clock(object):
+    def __init__(self,hour=0,minute=0,second=0):
+        self._hour=hour
+        self._minute=minute
+        self._second=second
+    def run(self):
+        self._second+=1
+        if self._second==60:
+            self._second=0
+            self._minute+=1
+            if self._minute==60:
+                self._minute=0
+                self._hour+=1
+                if self._hour==24:
+                    self._hour=0
+    def show(self):
+        return '%02d:%02d:%02d'%(self._hour,self._minute,self._second)
+
+a=Clock( 23,59,59)
+while True:
+    print(a.show())
+    time.sleep(1)
+    a.run()
