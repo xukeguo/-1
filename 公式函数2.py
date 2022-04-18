@@ -357,14 +357,14 @@ def solv4(func):
     a,b,c,d = getParm(func)
     dt=b*b-4*a*(c-d)
     if dt>=0:
-     x1 = -b+dt**(1/2)/(2*a)
-     x2 = -b-dt**(1/2)/(2*a)
+     x1 = (-b+dt**(1/2))/(2*a)
+     x2 = (-b-dt**(1/2))/(2*a)
      print(x1,x2)
      return x1,x2
     else:
       print('无解')
 
-solv4('3x^2-10x+7=0')
+solv4('3x^2+60x+7=0')
 
     
 #线性同余随机数
