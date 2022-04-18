@@ -192,6 +192,7 @@ def main():
             print('%d'%i)
             break
 main()
+#关键字可变参数 库函数enume
 
 def main():
     import enum
@@ -225,13 +226,114 @@ def main():
     n = int(input('请输入一个数字：'))
     print(n//100)
 main()
-#解决x*y=c,x+y=d的 非整数解
-#不import lib
+#0-1的随机数
 def main():
-    import fpdf 
-    import math
-    
+    import random
+    print(random.random())
+main()
+
   
+#0-1的线性同余随机数
+def main():
+    import random
+    print(random.getrandbits(4))#获取4位的随机数（二进制）
+main()
 
 
+#线性随机数
+try:
+    import random
+    print(random.randint(1,10))
+except:
+    print('请安装random库')
+#0~360的线性随机数
+def main():
+    import random
+    print(random.uniform(0,360))
+main()
+#解二元一次方程
+def main():
+    import math
+    a = float(input('请输入a：'))
+    b = float(input('请输入b：'))
+    c = float(input('请输入c：'))
+    if a == 0:
+        if b == 0:
+            if c == 0:
+                print('无解')
+            else:
+                print('无穷多个解')
+        else:
+            print('x = %.2f'%(-c/b))
+    else:
+        delta = b**2-4*a*c
+        if delta < 0:
+            print('无解')
+        elif delta == 0:
+            print('x = %5.2f'%(-b/(2*a)))
+        else:
+            print('x1 = %.2f'%((-b+math.sqrt(delta))/(2*a)),end=' ')
+            print('x2 = %.2f'%((-b-math.sqrt(delta))/(2*a)))
+main()
+#线性枚举解决二元一次方程
+def main():
+    import random
+    a = float(input('请输入a：'))
+    b = float(input('请输入b：'))
+    while True:
+        x = random.randint(1,10)#随机生成1-10的整数
+        y = random.randint(1,10)
+        if x*y == a  and x+y==b:
+            print(x,y)
+            break
+main()
+            
 
+def main(a,b):
+    import random
+    while True:
+     x=random.uniform(0,10)#生成0~a的随机数
+     y=random.uniform(0,10)
+     if x+y==a and x*y==b:
+            print(x,y) 
+            break
+        
+main(8,12)
+#求解二元一次方程
+def solv(func):
+    p1,p2 = func.split('=')
+    p1 = p1.split('x')[0]
+    p2 = p2.split('x')[0]
+    if p1 == '0':
+        return -float(p2)/float(p1)
+    else:
+        return -float(p2)/float(p1)
+def main():
+    func = input('请输入一个二元一次方程：')
+    print(solv(func))
+main()
+#求解一元一次方程
+def solv(func):#func是一个字符串类，可以做解析  如：'x**2+2x+1=0'
+    p1,p2 = func.split('=')
+    a1,a2 = p1.split('x')
+   
+    if a2 == '':
+        a2=0
+    x= (float(p2)-float(a2))/float(a1) 
+    print(x)
+solv('3x+2=11')
+#求解一元二次方程
+def main()
+
+
+    
+#线性同余随机数
+# range(start,stop)生成start~stop的整数
+#uniform(start,stop)#生成start~stop的随机浮点数
+#randint(start,stop)#生成start~stop的随机整数
+#randrange(start,stop,step)#生成start~stop的随机整数，step为步长
+#random()#生成0~1的随机浮点数   
+#seed(x)#设置随机数种子
+#shuffle(x)#将x的元素随机排序
+#choice(x)#从x中随机选取一个元素
+#sample(x,n)#从x中随机选取n个元素
