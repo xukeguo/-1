@@ -299,19 +299,7 @@ def main(a,b):
             break
         
 main(8,12)
-#求解二元一次方程
-def solv(func):
-    p1,p2 = func.split('=')
-    p1 = p1.split('x')[0]
-    p2 = p2.split('x')[0]
-    if p1 == '0':
-        return -float(p2)/float(p1)
-    else:
-        return -float(p2)/float(p1)
-def main():
-    func = input('请输入一个二元一次方程：')
-    print(solv(func))
-main()
+
 #求解一元一次方程
 def solv(func):#func是一个字符串类，可以做解析  如：'x**2+2x+1=0'
     p1,p2 = func.split('=')
@@ -321,10 +309,22 @@ def solv(func):#func是一个字符串类，可以做解析  如：'x**2+2x+1=0'
         a2=0
     x= (float(p2)-float(a2))/float(a1) 
     print(x)
-solv('3x+2=11')
-#求解一元二次方程
-def main()
-
+solv('3x+2=-1')
+#求解二元一次方程
+def getParm(func):
+    p1,p2 = func.split('=')
+    a1,a2 = p1.split('x')
+    b1,b2 = a2.split('y')
+    if b2 == '':
+        b2=0
+    return float(a1),float(b1),float(b2),float(p2)
+def solv2(func1,func2):
+    a1,b1,c1,d1 = getParm(func1)
+    a2,b2,c2,d2 = getParm(func2)
+    x = ((d1-c1)*b2-(d2-c2)*b1)/(a1*b2-a2*b1)
+    y = ((d1-c1)*a2-(d2-c2)*a1)/(-a1*b2+a2*b1)
+    print(x,y)
+solv2('3x+2y+1=0','2x+1y+1=0')
 
     
 #线性同余随机数
