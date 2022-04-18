@@ -325,7 +325,7 @@ def solv2(func1,func2):
     y = ((d1-c1)*a2-(d2-c2)*a1)/(-a1*b2+a2*b1)
     print(x,y)
 solv2('3x+2y+1=2','2x+1y+1=1')
-#求解三元一次方程
+#求解三元一次方程（没有调试）
 def getParm(func):
     p1,p2 = func.split('=')
     a1,a2 = p1.split('x')
@@ -343,6 +343,28 @@ def solv3(func1,func2,func3):
     z = ((d1-c1)*a2*b3-(d2-c2)*a1*b3-(d3-c3)*a1*b2)/(a1*a2*c3-a1*a3*c2-a2*a3*c1)
     print(x,y,z)
 solv3('3x+2y+1z+2=2','2x+1y+1z+1=1','1x+1y+1z+1=1')
+#求解一元二次方程
+def getParm(func):
+    p1,p2 = func.split('=')
+    a1,a2 = p1.split('x^2')
+    b1,b2 = a2.split('x')
+    if a1=='':
+        a1=1
+    if b2=='':
+        b2=0
+    return float(a1),float(b1),float(b2),float(p2)
+def solv4(func):
+    a,b,c,d = getParm(func)
+    dt=b*b-4*a*(c-d)
+    if dt>=0:
+     x1 = -b+dt**(1/2)/(2*a)
+     x2 = -b-dt**(1/2)/(2*a)
+     print(x1,x2)
+     return x1,x2
+    else:
+      print('无解')
+
+solv4('3x^2-10x+7=0')
 
     
 #线性同余随机数
