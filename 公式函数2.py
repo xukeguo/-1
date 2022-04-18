@@ -346,7 +346,7 @@ solv3('3x+2y+1z+2=2','2x+1y+1z+1=1','1x+1y+1z+1=1')
 #求解一元二次方程
 def getParm(func):
     p1,p2 = func.split('=')
-    a1,a2 = p1.split('x^2')
+    a1,a2 = p1.split('x^2+')
     b1,b2 = a2.split('x')
     if a1=='':
         a1=1
