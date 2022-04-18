@@ -324,7 +324,25 @@ def solv2(func1,func2):
     x = ((d1-c1)*b2-(d2-c2)*b1)/(a1*b2-a2*b1)
     y = ((d1-c1)*a2-(d2-c2)*a1)/(-a1*b2+a2*b1)
     print(x,y)
-solv2('3x+2y+1=0','2x+1y+1=0')
+solv2('3x+2y+1=2','2x+1y+1=1')
+#求解三元一次方程
+def getParm(func):
+    p1,p2 = func.split('=')
+    a1,a2 = p1.split('x')
+    b1,b2 = a2.split('y')
+    c1,c2 = b2.split('z')
+    if c2 == '':
+        c2=0
+    return float(a1),float(b1),float(c1),float(p2)
+def solv3(func1,func2,func3):
+    a1,b1,c1,d1 = getParm(func1)
+    a2,b2,c2,d2 = getParm(func2)
+    a3,b3,c3,d3 = getParm(func3)
+    x = ((d1-c1)*b2*c3-(d2-c2)*b1*c3-(d3-c3)*b1*c2)/(a1*b2*c3-a2*b1*c3-a3*b1*c2)
+    y = ((d1-c1)*a2*c3-(d2-c2)*a1*c3-(d3-c3)*a1*c2)/(-a1*b2*c3+a2*b1*c3+a3*b1*c2)
+    z = ((d1-c1)*a2*b3-(d2-c2)*a1*b3-(d3-c3)*a1*b2)/(a1*a2*c3-a1*a3*c2-a2*a3*c1)
+    print(x,y,z)
+solv3('3x+2y+1z+2=2','2x+1y+1z+1=1','1x+1y+1z+1=1')
 
     
 #线性同余随机数
