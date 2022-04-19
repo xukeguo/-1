@@ -1,3 +1,8 @@
+#欢迎使用Python脚本编辑器！我的一小步，人类一大步！
+#@File    :   库.py
+#@Time    :   2022/04/19 23:39:47
+#@Author  :   flow-laic 
+#@Email   :
 list_mame=['Waiwu','Lisi','Wangwu','Zhaoliu','Zhangsan']
 for i in range(0,len(list_mame)):
     if 'hao' in list_mame[i]:
