@@ -497,6 +497,10 @@ class Foo(object):
 #导入模块
 import demo1  #
 demo1.f()
+#导入包
+from pageage import demo1
+demo1.f()
+
 
 
 

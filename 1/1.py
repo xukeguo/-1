@@ -498,7 +498,8 @@ class Foo(object):
 
 from pageage import demo1
 demo1.f()
-
+from pageage import demo1
+demo1.f()
 
 
 

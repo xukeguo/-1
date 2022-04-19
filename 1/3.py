@@ -1,4 +1,9 @@
-# coding=utf-8
+
+'''
+@File    :   3.py
+@Time    :   2022/04/19 23:14:25
+@Author  :   flow-laic 
+'''# coding=utf-8
 # 编写计算圆周率的程序      可以使用math库
 
 from unicodedata import name
