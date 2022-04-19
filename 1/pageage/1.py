@@ -495,11 +495,8 @@ class Foo(object):
         return self.price * n
 
 #导入模块
-
-from pageage import demo1
+import demo1  #
 demo1.f()
-
-
 
 
 
