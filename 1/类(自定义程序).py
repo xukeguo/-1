@@ -656,6 +656,55 @@ print(id(db2))
 
 db3 = DatabaseClass()
 print(id(db3))
+'''_new__的作用
+__new__方法的作用是，创建并返回一个实力对象，如果__new__只调用了一次，就会得到一个对象，继承自object的新式类才有new这一魔法方法
+注意事项
+__new__是在一个对象实例化的时候所调用的第一个方法
+__new__至少必须要有一个参数cls，代表要实例化的类，此参数在实例化时由python解释器自动提供，其他的参数时用来直接传递给__init__方法
+__new__决定是否要使用该__init__方法，因为__new__可调用其他类的构造方法或者直接返回别的实力对象来作为本类的实例，如果__new__没有返回实例对象，则__init__不会被调用
+在__new__方法中，不能调用自己的__new__方法，即：return cls.__new__(cls)，否则报错（Recursionerror：maximum recursion depth exceeded：超过最大递归深度）
+实例
+
+复制代码'''
+class Animal(object):
+  
+    def __init__(self):
+        self.color = color
+    #如果不重写，__new__默认结构如下
+    def __new__(cls,*args,**kwargs):
+        return super().__new__(cls,*args,**kwargs)
+        #return object.__new__(cls,*args,**kwargs)
+tigger = Animal() #实例化过程中会自动调用__new__
+'''复制代码
+在新式类中__new__才是真正的实例化方法，为类提供外壳制造出实例框架，然后调用框架内的构造方法__init__进行操作
+
+我们可以将类比作制造商，__new__()方法就是前期的原材料购买环节，__init__()方法就是在有原材料的基础上，加工，初始化商品环节。
+
+单例模式
+
+是一种常用的软件设计模式，目的：确保某一个类只有一个实例存在
+
+如果希望在某个系统中，某个类只能出现一个实例的时候，那么这个单例对象就能满足要求
+
+复制代码'''
+class DatabaseClass(object):
+    def __new__(cls, *args, **kwargs):
+        # cls._instance=cls.__new__(cls) 不能使用自身的new方法
+        #容易造成一个深度递归，应该调用父类的new方法
+        if not hasattr(cls,'_instance'):
+            cls._instance=super().__new__(cls, *args, **kwargs)
+        return cls._instance
+
+    pass
+
+db1 = DatabaseClass()
+print(id(db1))
+
+db2 = DatabaseClass()
+print(id(db2))
+
+db3 = DatabaseClass()
+print(id(db3))
 '''复制代码
  
 
@@ -693,7 +742,6 @@ class Foo(object):
         return self.price * n
 
 foo = Foo()
-foo1=Foo(foo)
 print(foo.how_much_of_book(8))
 # <__main__.Foo object at 0x1006f2750>
 # <__main__.Foo object at 0x1006f2750>
@@ -706,13 +754,10 @@ print(foo.how_much_of_book(8))
 复制代码'''
 class Foo(object):
 
-    def __new__(cls, *agrs, **kwds):
-        inst = object.__new__(cls, *agrs, **kwds)
-        print(inst)
-        return inst
+    
 
 
-    def __init__(self, price=50):
+    def __init__(self, price=40):
         self.price = price
 
     def how_much_of_book(self, n):
@@ -725,7 +770,7 @@ print(foo.how_much_of_book(8))
 # <__main__.Foo object at 0x1006f2750>
 # <__main__.Foo object at 0x1006f2750>
 # 400
-复制代码
+'''复制代码
 3、__new__ 方法创建实例对象供__init__ 方法使用，__init__方法定制实例对象。
 
 __new__ 方法必须返回值，__init__方法不需要返回值。(如果返回非None值就报错)
@@ -736,7 +781,7 @@ __new__ 方法必须返回值，__init__方法不需要返回值。(如果返回
 
 __new__() is intended mainly to allow subclasses of immutable types (like int, str, or tuple) to customize instance creation. It is also commonly overridden in custom metaclasses in order to customize class creation.
 
-继承不可变数据类型时需要用到__new__方法(like int, str, or tuple） 。
+继承不可变数据类型时需要用到__new__方法(like int, str, or tuple） 。'''
 
 class Inch(float):
     "Convert from inch to meter"
@@ -744,17 +789,17 @@ class Inch(float):
         return float.__new__(cls, arg*0.0254)
 
 print(Inch(12))
-用在元类，定制创建类对象
+'''用在元类，定制创建类对象
 
-复制代码
+复制代码'''
 class MetaClass(type):
 
     def __new__(meta, name, bases, dct):
-        print '-----------------------------------'
-        print "Allocating memory for class", name
-        print meta
-        print bases
-        print dct
+        print ('-----------------------------------')
+        print ( "Allocating memory for class", name)
+        print (meta)
+        print (bases)
+        print (dct)
         return super(MetaClass, meta).__new__(meta, name, bases, dct)
 
     def __init__(cls, name, bases, dct):
@@ -792,7 +837,7 @@ p.foo("hello")
 
 首先想到的是把request也传递过去，在clean方法就可以使用了。
 
-复制代码
+复制代码'''
 class MyForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request')
@@ -801,8 +846,8 @@ class MyForm(forms.ModelForm):
     def clean(self):
         #这里可以得到self.request的信息
         pass
-复制代码
-在平常的view用下面的代码调用：
+'''复制代码
+在平常的view用下面的代码调用：'''
 
 f = MyForm(request.POST, request=request)
 但是在定制ModelAdmin的时候却不行，因为admin只提供get_form这个方法，返回值是类对象，而不是实例对象
@@ -811,7 +856,7 @@ f = MyForm(request.POST, request=request)
         # 这行代码是错误的
         # return MyForm(request=request) 
         return MyForm     # OK
-用__new__方法可以解决这个问题。'''
+用__new__方法可以解决这个问题。
 
 def get_form(self, request, *args, **kwargs):
     class ModelFormMetaClass(MyForm):
@@ -848,4 +893,19 @@ print type(A)
 
 结果：
 <type 'type'>
-
+复制代码
+Python type与objectpython当中的type是所有内置对象或者类的基类型，object是所有类继承的基类，因此int、str、list、tuple等等这些内置的类，这些都是type类的实例对象。因为type也是类，因此type的基类也是object
+#废__new__的写法
+class person(object):
+    def __new__(cls,*args, **kwargs):
+        obj=object.__new__(cls)#super().__new__(cls)+1
+        return obj #返回的是一个实例对象，__init__才有机会被调用
+        
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def name(self):
+        return self.name
+p1=person('zhangsan',18)
+print (p1.name)
+p2=person(p1)

@@ -1,7 +1,15 @@
 
 
-from email.headerregistry import Address
-from sys import flags
+#from email.headerregistry import Address
+#from sys import flags
+#from typing import Dict
+
+
+from datetime import date, datetime
+from logging.config import dictConfig
+from pickle import DICT
+
+from money import fib
 
 
 print
@@ -13,6 +21,28 @@ print(9+6)
 
 555555
 print(9-3)
+class a:
+    def __init__(self):
+        print("a")
+''' def __init__(self,a):
+        print(a)'''
+    
+   
+a1=a()
+a2=a()
+a3=a()
+a4=a()
+a5=a()
+a2
+a1
+a3
+a4
+a5
+dir(a1)
+a
+
+
+
 #00
 '''b=open("/Users/xkg/Documents/test.txt", "a+")
 print("ggg", file=b)
@@ -452,10 +482,23 @@ print(sum)
 
 
 
+class Foo(object):
+
+    
 
 
+    def __init__(self, price):
+        self.price = price
 
-      
+    def how_much_of_book(self, n):
+        print(self)
+        return self.price * n
+
+#导入模块
+import demo  #
+demo.f()
+
+
 
 
 
