@@ -141,6 +141,8 @@ list(dict.keys())[list(dict.values()).index('张三')]  # 输出字典中包含�
 # 根据最小值返回对应的键
 dict = {2: 1, 3: 9, 4: 5}
 min(dict, key=dict.get)
+
+
 # 根据最大值返回对应的键
 dict = {2: 1, 3: 9, 4: 5}
 max(dict, key=dict.get)
