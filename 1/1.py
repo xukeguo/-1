@@ -43,14 +43,7 @@ a
 
 
 
-#00
-'''b=open("/Users/xkg/Documents/test.txt", "a+")
-print("ggg", file=b)
-b.close()
-b=open("/Users/xkg/Documents/test.txt", "a+")
-print("ggg", file=b)
-b.close()'''
-#pass用于占位
+
 a=int(input('请输入：'))
 if a==1:
    pass
@@ -380,65 +373,7 @@ age3=int(input("请输入3年龄："))
 dict1['name']=[name1,name2,name3]
 dict1['age']=[age1,age2,age3]
 print(dict1)
-#创建列表
-list1 = [1,2,3,4,5,6,7,8,9,10]
-list2 = list([1,2,3,4,5,6,7,8,9,10])#
-list3 = list(range(1,11))
-list4 = [i for i in range(1,11)]
-#列表推导式
-#列表推导式：[表达式 for 变量 in 可迭代对象 if 条件] 
-#列表推导式：[表达式 for 变量 in 可迭代对象]
-#列表推导式：[表达式 for 变量 in 可迭代对象 if 条件 for 变量 in 可迭代对象 if 条件]
-#列表推导式：[表达式 for 变量 in 可迭代对象 if 条件 for 变量 in 可迭代对象 if 条件 if 条件]
-#列表推导式：[表达式 for 变量 in 可迭代对象 if 条件 for 变量 in 可迭代对象 if 条件 if 条件]
-list5 = [i for i in range(1,11) if i%2==0]
-list6 = [i for i in range(1,11) if i%2!=0]
-list7 = [i for i in range(1,11) if i%2==0 if i%3==0]
-print(list7)
-list8 = [i for i in range(1,11) if i%2==0 if i%3!=0]
-print(list8)
 
-
-print(list1)
-print(list2)
-print(list3[0:5])#切片
-print(list3[-5:])#索引
-print(list3[::2])#步长
-print(list3[::-1])#倒序
-print(list3[::-2])#倒序
-print(list3[::-3])#倒序
-print(list3[::-4])#倒序
-print(list3[::-5])#倒序
-print(list3[::-6])#倒序
-print(list3[::-7])#倒序
-print(list3.index(3))#索引
-print(list3.count(3))#统计
-list3.append(11)#追加
-list3.insert(0,15)#插入
-list3.extend([11,22,33])#扩展
-print(list3)
-list3.remove(11)#删除
-#list3.pop()#删除
-##list3.pop(0)#删除
-#list3.clear()#清空
-list3.reverse()#反转
-print(list3)
-list3.sort()#排序
-print(list3)
-list3.sort(reverse=True)#倒序
-print(list3)
-list3.sort(reverse=True)#排序
-list3.sort(reverse=False)#排序
-list3.sort(key=None,reverse=True)#排序
-list3.sort(key=None,reverse=False)#排序
-#移除列表中的重复元素
-list3.remove(11)
-list3.remove(11)#删除
-list3.pop(0)#删除
-del list3[0]#删除
-list3.clear()#清空
-list3.reverse()#反转
-#将字符串中的小写字母转换成大写字母
 str1 = "abcdefg"
 str2 = str1.upper()
 

@@ -83,9 +83,7 @@ list_1=list(list_age + list_score + [100])
 print(list_1)
 list_1=list(list_age + list_score + [100])
 print(list_1)
-#列表去重  去除重复 
-list_1=list(set(list_1))
-print(list_1)
+
 
 list1 = [1,2,3,4,5,6,7,8,9,10]
 list2 = list([1,2,3,4,5,6,7,8,9,10])#

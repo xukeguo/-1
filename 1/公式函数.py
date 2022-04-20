@@ -112,12 +112,7 @@ for i in range(2,101):
     for j in range(i*2,101,i):
       dict1[j]=False
 print(dict1)
- #创建一个数列，后面的数字是所有数的和
-list1=[1,1,2,3,5,8,13,21,34,55,89, 144, 233, 377, 610, 987, 1597, 2584, 4181]#生成式  列表生成式
-list2=[x for x in range(1,101) if x%2==0]#生成式  列表生成式
-list3=[x for x in range(1,101) if x%2==1]#生成式  列表生成式
-list4=[x for x in range(1,101) if x%2==0 and x%3==0]#生成式  列表生成式
-list5=[x for x in range(1,101) if x%2==0 and x%3==0 and x%5==0]#生成式  列表生成式
+ 
 
 
 print(sum(list1))#sum函数可以求和

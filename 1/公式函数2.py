@@ -366,6 +366,7 @@ def solv4(func):
 
 solv4('3x^2+60x+7=0')
 
+
     
 #线性同余随机数
 # range(start,stop)生成start~stop的整数
