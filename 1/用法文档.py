@@ -915,7 +915,8 @@ tuple_1=(1,2,3,4,5,5,6,6,7,8,9,10)
 tuple_1.count(6)#统计
 tuple_1=tuple(set(tuple_1))
 print(tuple_1)
-#open()
+#open()'r'读 'w'写 'a'追加 'r+'读写 'w+'     
+#    'rb'二进制读 'wb'二进制写 'rb+'二进制读写 'wb+'二进制追加 'ab'二进制追加 'ab+'二进制追加  'rt'文本读 'wt'文本写 'at'文本追加 'rt+'文本读写 'wt+'文本写追加 'at+'文本追加 'a+'文本追加 'r+b'二进制追加 'w+b'二进制写追加 'a+b'二进制追加 'r+t'文本追加 'w+t'文本写追加 'a+t'文本追加
 a=open('/Users/xkg/Documents/GitHub/-1/1/pageage/test.txt','r')
 b=open('/Users/xkg/Documents/GitHub/-1/1/pageage/test1.txt','a+')
 b.write(a.read())#写入
