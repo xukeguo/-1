@@ -432,24 +432,21 @@ class Foo(object):
 
 #导入模块
 
-from pageage import demo1
-demo1.f()
-from pageage import demo1
-demo1.f()
-a1=5
-a1=True
-if type(a1)==bool:
-    print('a1是bool类型')
-print(dir(type(a1)))
-a2=float(a1)
-
-print(a2)
-a1='sdfsdfsdfsd'
-a1.upper()
-from string import string.
+l=[1,2,3,4,5]
+l2=[6,7,8,9,10]
+l.extend((11,12,13))
+print(l)
+l3=l+l2
+print(l3)
 
 
-print(dir(str))
+
+
+
+
+
+
+
 
 
 
