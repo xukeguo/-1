@@ -916,18 +916,21 @@ tuple_1.count(6)#统计
 tuple_1=tuple(set(tuple_1))
 print(tuple_1)
 #open()
-a=open('/Users/xkg/Documents/test.txt','r')
-b=open('/Users/xkg/Documents/test1.txt','a+')
+a=open('/Users/xkg/Documents/GitHub/-1/1/pageage/test.txt','r')
+b=open('/Users/xkg/Documents/GitHub/-1/1/pageage/test1.txt','a+')
 b.write(a.read())#写入
 a.close()
 b.close()
 #read()
-a=open('/Users/xkg/Documents/test.txt','r')
+a=open('/Users/xkg/Documents/GitHub/-1/1/pageage/test.txt','a+')
 print(a.read())#读取
-a.close()
+
 #readline()#  每次读取一行
-a=open('/Users/xkg/Documents/test.txt','r')
-print(a.readline())#读取
+b=open('/Users/xkg/Documents/GitHub/-1/1/pageage/test1.txt','a+')
+print(a.read(),file=b)#读取
+#b.buffer()#缓冲区
+#b.detach()#分离
+b.close()
 a.close()
 
      
