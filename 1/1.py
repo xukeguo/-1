@@ -147,6 +147,7 @@ while i<50:
         i+=1
 print(sum6)  #2500
 #for循环
+
 for _ in range(1,10):
     print("hello")
 for i in 'hello':
@@ -500,10 +501,20 @@ from pageage import demo1
 demo1.f()
 from pageage import demo1
 demo1.f()
+a1=5
+a1=True
+if type(a1)==bool:
+    print('a1是bool类型')
+print(dir(type(a1)))
+a2=float(a1)
+
+print(a2)
+a1='sdfsdfsdfsd'
+a1.upper()
+from string import string.
 
 
-
-
+print(dir(str))
 
 
 

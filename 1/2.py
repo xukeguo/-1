@@ -32,7 +32,7 @@ a2 = 2.1
 a3 = 2.2
 print(a + a2)
 print(a + a3)
-from decimal import Decimal   # 导入模块
+from decimal import Decimal   # 精度计算
 
 print(Decimal('1.1') + Decimal('2.2'))  # 对象操作
 print('八进制', 0o755)     # 八进制
@@ -93,76 +93,102 @@ print(chr(0b10000001100111111))
 # 转义字符
 print(ord('徐'))
 # 转义字符
-print(chr(0x789ad))
+print(chr(24464))
 # 导入
 import keyword
 print(keyword.kwlist)
-# name = "科国"
-# print(name)
-# print('标识', id(name))
-# print('类型', type(name))
-# print('值', name)
-# print('值', name)
-# n = 10
-# print('类型', type(n))
-# print('八进制', 0o755)
-# print('二进制', 0b10101111)
-# print('十六进制', 0x789ad)
-# a = 1.1
-# a2 = 2.1
-# a3 = 2.2
-# open("/Users/xuekguo/Documents/test.txt", "a+")
-# 只读打开文件
-# a = open("/Users/xuekguo/Documents/test.txt", "r")
-# 读取文件
-# print(a.read())
-# 关闭文件
-# a.close()
-# 写入文件
-# a = open("/Users/xuekguo/Documents/test.txt", "a+")
-# 打开百度网页
 
-#d = open("http:\\\\www.baidu.com", "a+")
-#print("http:\\\\www.baidu.com", file=d)
-#d.close()
+
 
 # 数据类型-字符串
+#字符串的生成式
+str1='abc|defg'# 字符串的生成式
+str2 = ''.join(['a','b','c'])#连接字符串
+print (str2)
+print (str1)
+#字符串的添加
+str1='abc'
+str1+='def'
+print (str1)
+#字符串的删除    方法为切片
+str1='abcdef'
+#str1=str1[2:-3]#删除第三个到倒数第三个字符
+a=str1[2:3]#第三个到第四个保留
+print (a)
 str1 = "hello world"  # 单个引号相当于单行文本
-str2 = 'hello world'
-str3 = """hello world"""  # 多行文本
-str3 = """hello,
-world"""  # 三个双引号相当于多行字符串
-str4 = '''hello world'''
-str5 = '''hello,
-world'''
-print(str1)
-print(str2)
-print(str3)
-print(str4)
-print(str5)
-# 数据类型-整数
-a = 1
-b = 2
-c = 3
-print(a)
-print(b)
-print(c)
-# 数据类型-浮点数
-a = 1.1
-b = 2.2
-c = 3.3
-print(a)
-print(b)
-print(c)
-# 数据类型-布尔值
-a = True
-b = False
-print(a)
-print(b)
-# 注释编码转换
-# coding:gbk
-# coding:utf-8
-# coding:utf-8
+str.strip()  # 去除字符串两端的空格
+str.lstrip()  # 去除字符串左端的空格
+str.rstrip()  # 去除字符串右端的空格
+str.lower()  # 将字符串转换为小写
+str.upper()  # 将字符串转换为大写
+str.capitalize()  # 将字符串的第一个字符转换为大写
+str.title()  # 将字符串的每个单词的第一个字符转换为大写 
+str.swapcase()  # 将字符串中的大写字符转换为小写，小写字符转换为大写
+str.replace("hello", "world")  # 将字符串中的hello替换为world
+str.find("hello")  # 查找字符串中是否包含hello，返回索引值   如果没有找到返回-1
+str.count("hello")  # 返回字符串中hello的个数
+str.startswith("hello")  # 判断字符串是否以hello开头
+str.strip("hello")  # 去除字符串两端的hello  如果没有找到返回空字符串
+str.lstrip("hello")  # 去除字符串左端的hello  如果没有找到返回空字符串
+str.rstrip("hello")  # 去除字符串右端的hello  如果没有找到返回空字符串
+str.title()  # 将字符串的每个单词的第一个字符转换为大写  如果没有找到返回空字符串
+str.translate()  # 将字符串中的某些字符替换为其他字符  如果没有找到返回空字符串
+str.endswith("hello")  # 判断字符串是否以hello结尾
+str.isalnum()  # 判断字符串是否只包含字母和数字
+str.isalpha()  # 判断字符串是否只包含字母
+str.isdigit()  # 判断字符串是否只包含数字
+str.islower()  # 判断字符串是否只包含小写字母
+str.isupper()  # 判断字符串是否只包含大写字母
+str.isspace()  # 判断字符串是否只包含空格
+str.istitle()  # 判断字符串是否只包含单词的第一个字母
+str.isascii()  # 判断字符串是否只包含ASCII字符
+str.isdecimal()  # 判断字符串是否只包含十进制字符
+str.isspace()  # 判断字符串是否只包含空格
+str.isprintable()  # 判断字符串是否只包含可打印字符
+str.isnumeric()  # 判断字符串是否只包含数字
+str.join("hello")  # 将字符串拼接成新的字符串
+str.split("hello")  # 将字符串按照hello分割成列表
+str.partition("hello")  # 将字符串按照hello分割成元组
+str.rpartition("hello")  # 将字符串按照hello分割成元组
+str.rsplit("hello")  # 将字符串按照hello分割成列表
+str.splitlines(True)  # 将字符串按照换行符分割成列表 保留换行符 .splitlines(True)
+str.splitlines()  # 将字符串按照换行符分割成列表    如果没有换行符，则返回一个列表，列表中只有一个元素
+str.split()  # 将字符串按照空格分割成列表           如果没有指定分隔符，默认按照空格分割
+str.casefold()  # 将字符串转换为小写
+str.center(20)  # 将字符串居中，并在两边填充空格
+str.ljust(20)  # 将字符串左对齐，并在右边填充空格
+str.rjust(20)  # 将字符串右对齐，并在左边填充空格
+str.zfill(20)  # 将字符串右对齐，并在左边填充0
+str.expandtabs(20)  # 将字符串中的tab符号替换为空格
+str.maketrans("hello", "world")  # 将字符串中的hello替换为world
+str.encode("utf-8")  # 将字符串转换为utf-8编码
+str1.encode(encoding='utf-8',errors='strict') #将字符串转换成字节码
+str1.decode(encoding='utf-8',errors='strict') #将字节码转换成字符串
+str.decode("utf-8")  # 将字符串转换为utf-8编码
+str.encode("gbk")  # 将字符串转换为gbk编码
+str.decode("gbk")  # 将字符串转换为gbk编码
+str.encode("ascii")  # 将字符串转换为ascii编码
+str.decode("ascii")  # 将字符串转换为ascii编码
+str.encode("utf-16")  # 将字符串转换为utf-16编码
+str.decode("utf-16")  # 将字符串转换为utf-16编码
+str.encode("utf-32")  # 将字符串转换为utf-32编码
+str.decode("utf-32")  # 将字符串转换为utf-32编码
+str.encode("latin-1")  # 将字符串转换为latin-1编码
+str.decode("latin-1")  # 将字符串转换为latin-1编码
+str.decode("gbk_2312")  # 将字符串转换为gbk_2312编码
+str.encode("gbk_2312")  # 将字符串转换为gbk_2312编码
+str.format_map({"name": "hello"})  # 将字符串中的{name}替换为hello
+str.format()  # 将字符串中的占位符替换为参数
+str.format_map()  # 将字符串中的占位符替换为参数   参数必须是字典
+str.center(20, "*")  # 将字符串居中，并在两边填充字符
+str.ljust(20, "*")  # 将字符串左对齐，并在右边填充字符
+str.rjust(20, "*")  # 将字符串右对齐，并在左边填充字符
+str.zfill(20, "*")  # 将字符串右对齐，并在左边填充字符
+str.expandtabs(20, "*")  # 将字符串中的tab符号替换为字符
+str.index("hello")  # 查找字符串中是否包含hello，返回索引值  如果没有找到会报错
+str.partition("hello")  # 将字符串按照hello分割成元组
+str.rfind("hello")  # 查找字符串中是否包含hello，返回索引值  如果没有找到会报错
+str.rindex("hello")  # 查找字符串中是否包含hello，返回索引值  如果没有找到会报错
 # 多行注释用三个单引号或者三个双引号，注意要用英文的引号
 """hello,
 world"""
@@ -171,6 +197,41 @@ world"""
 world"""'''
 # 多行注释用三个单引号或者三个双引号，注意要用英文的引号
 # 布尔值
+
+str1='*'
+str2 = 'hello world'
+st3='*'.join(str2)#  将字符串按照*连接成新的字符串
+a1=st3.split('*')#  将字符串按照*分割成列表
+print(a1[3])  # 将字符串按照空格分割成列表
+str2.find('e')  # 查找字符串中是否包含e，返回索引值  如果没有找到会报错
+print(str2.split(' '))  # 将字符串按照空格分割成列表，并返回第三个元素
+
+# 数据类型-整数
+a = 1
+int()#取整后创建对象
+b = 2
+c = 3
+print(a)
+print(b)
+print(c)
+# 数据类型-浮点数float
+float()
+a.as_integer_ratio #    
+
+b = 2.2
+c = 3.3
+print(a)
+print(b)
+print(c)
+# 数据类型-布尔值
+bool()
+
+a = True
+b = False
+print(a)
+print(b)
+
+
 a = True
 b = False
 #input 函数
@@ -576,68 +637,8 @@ set1.remove(1)#移除一个元素
 set1.discard(1)#移除一个元素，如果不存在，不会报错  
 set1.pop()#随机移除一个元素
 set1.clear()#清空集合
-#字符串的生成式
-str1='abc|defg'# 字符串的生成式
-str2 = ''.join(['a','b','c'])#连接字符串
-print (str2)
-print (str1)
-#字符串的添加
-str1='abc'
-str1+='def'
-print (str1)
-#字符串的删除    方法为切片
-str1='abcdef'
-str1=str1[2:-3]#删除第三个到倒数第三个字符
-print (str1)
+
    
-str1='abcdef王王g'
-str1 
-print (str1)
-str1.index( c) #查找字符串中第一次出现的字符c的索引
-str1.count(c) #查找字符串中出现的字符c的个数
-str1.find(c) #查找字符串中第一次出现的字符c的索引
-str1.rfind(c) #查找字符串中最后一次出现的字符c的索引
-str1.startswith(c) #判断字符串是否以c开头   false
-str1.endswith(c) #判断字符串是否以c结尾   false
-str1.isalnum() #判断字符串是否由字母和数字组成   false
-str1.isalpha() #判断字符串是否由字母组成   true
-str1.upper() #将字符串中的小写字母转换成大写字母
-str1.lower() #将字符串中的大写字母转换成小写字母
-str1.capitalize() #将字符串的第一个字母转换成大写字母
-str1.title() #将字符串中每个单词的第一个字母转换成大写字母
-str1.swapcase() #将字符串中的大写字母转换成小写字母，小写字母转换成大写字母
-str1.strip() #删除字符串首尾的空格
-str1.lstrip() #删除字符串左边的空格
-str1.rstrip() #删除字符串右边的空格
-str1.replace(old,new) #将字符串中的old字符串替换成new字符串
-str1.split(sep='|',maxsplit=1) #将字符串按照c字符串进行分割，返回一个列表
-str1.join(str2) #将字符串str2中的每个元素替换成str1
-print (str1.split(sep='|',maxsplit=1)) #['abc', 'defg']
-print (str1.join(str2)) #abc|defg
-print(str2)#abc|defg
-str1.join(list) #将list中的每个元素替换成str1
-str1.encode(encoding='utf-8',errors='strict') #将字符串转换成字节码
-str1.decode(encoding='utf-8',errors='strict') #将字节码转换成字符串
-str1.format(a,b,c) #格式化字符串
-str1.zfill(width) #将字符串填充为指定长度，不足的在左边填充0
-str1.center(width) #将字符串填充为指定长度，不足的在中间填充空格
-str1.ljust(width) #将字符串填充为指定长度，不足的在左边填充空格
-str1.rjust(width) #将字符串填充为指定长度，不足的在右边填充空格
-str1.isdigit() #判断字符串是否只由数字组成
-str1.isalpha() #判断字符串是否只由字母组成
-str1.isalnum() #判断字符串是否只由字母和数字组成
-str1.isupper() #判断字符串是否只由大写字母组成
-str1.islower() #判断字符串是否只由小写字母组成
-str1.istitle() #判断字符串是否只由标题字母组成
-str1.isspace() #判断字符串是否只由空格组成
-str1.isnumeric() #判断字符串是否只由数字组成
-str1.isidentifier() #判断字符串是否是合法的标识符
-str1.expandtabs(tabsize=8) #将字符串中的tab符号转换成空格，tabsize指定tab的长度
-str1.lstrip() #删除字符串左边的空格
-str1.rstrip() #删除字符串右边的空格
-str1.strip() #删除字符串首尾的空格
-str1.lower() #将字符串中的大写字母转换成小写字母
-#将字符串中的小写字母转换成大写字母
 str1.upper()
 #ord()函数获取字符的整数表示与chr()函数相反
 print(ord('a')) #97

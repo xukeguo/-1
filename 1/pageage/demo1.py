@@ -71,6 +71,6 @@ with open('/Users/xkg/Documents/GitHub/-1/1/pageage/test.txt','r') as f:
 
 #写入文件
 b=open('/Users/xkg/Documents/GitHub/-1/1/pageage/test.txt','a+')
-#b.write('')
+b.write('good')
 print('good,hello world',file=b)#任何语句都可赋值给=，也可以print
 b.close()
