@@ -915,7 +915,7 @@ tuple_1=(1,2,3,4,5,5,6,6,7,8,9,10)
 tuple_1.count(6)#统计
 tuple_1=tuple(set(tuple_1))
 print(tuple_1)
-#open()'r'读 'w'写 'a'追加 'r+'读写 'w+'     
+#open()'r'读 'w'覆盖写 'a'追加 'r+'读写 'w+'     
 #    'rb'二进制读 'wb'二进制写 'rb+'二进制读写 'wb+'二进制追加 'ab'二进制追加 'ab+'二进制追加  'rt'文本读 'wt'文本写 'at'文本追加 'rt+'文本读写 'wt+'文本写追加 'at+'文本追加 'a+'文本追加 'r+b'二进制追加 'w+b'二进制写追加 'a+b'二进制追加 'r+t'文本追加 'w+t'文本写追加 'a+t'文本追加
 a=open('/Users/xkg/Documents/GitHub/-1/1/pageage/test.txt','r')
 b=open('/Users/xkg/Documents/GitHub/-1/1/pageage/test1.txt','a+')
@@ -933,9 +933,239 @@ print(a.read(),file=b)#读取
 #b.detach()#分离
 b.close()
 a.close()
+a.detachque()#分离
+a.fileno()#文件描述符
+a.flush()#刷新
+a.isatty()#是否是一个终端设备
+a.mode#模式
+a.name#文件名
+a.newlines#换行符
+a.read()#读取
+a.read(10)#读取
+a.readline()#读取一行
+a.readlines()#读取所有行
+a.seek(0)#定位#0开始    
+a.tell()#定位#
+a.truncate()#截断
+a.write()#写入
+a.writelines()#写入所有行
+a.close()
 
-     
+     #os模块
+import os
+os.getcwd()#获取当前工作目录
+from pageage import demo1
+demo1.f()
+from pageage import demo1
+demo1.f()
+a1=5
+a1=True
+if type(a1)==bool:
+    print('a1是bool类型')
+print(dir(type(a1)))
+a2=float(a1)
 
+print(a2)
+a1='sdfsdfsdfsd'
+a1.upper()
+from string import string.
+
+
+'''import abc#抽象类
+import aifc#音频格式
+import aiofiles#异步文件
+import annoy#推荐系统
+import argparse#命令行参数  参数解析    
+import asyncio#异步IO
+import atexit#退出时执行
+import audioop#音频操作
+import base64#base64编码
+import bdb#调试
+import binascii#二进制
+import bisect#二分查找
+import bz2#压缩
+import cProfile#性能分析
+import cgi#解析
+import cgitb#调试
+import chunk#分块
+import cmath#数学
+import cmd#命令行
+import code#代码
+import codecs#编码
+import collections#集合
+import colorsys#颜色
+import codeop#代码
+import concurrent#并发
+import contextlib#上下文
+import copy#拷贝
+import crypt#加密
+import csv#csv
+import curses#curses
+import dataclasses#数据类
+import datetime#时间
+import decimal#小数
+import difflib#差分
+import distutils#编译
+import doctest#文档测试
+import dbm#数据库
+import dbm.dumb#数据库
+import dbm.gnu#数据库
+import dbm.ndbm#数据库
+import dbm.whichdb#数据库
+import dbm.gdbm#数据库
+import dbm.ndbm#数据库
+import dbm.whichdb#数据库
+import decimal#小数 
+import difflib#差分
+import dis#汇编
+import doctest#文档测试
+import dbm#数据库
+import dbm.dumb#数据库
+import dbm.gnu#数据库
+import dbm.ndbm#数据库
+import dbm.whichdb#数据库
+import dbm.gdbm#数据库
+import dbm.ndbm#数据库
+import dbm.whichdb#数据库
+import decimal#小数
+import editdistance#编辑距离
+import email#邮件
+import encodings#编码
+import enum#枚举
+import errno#错误码
+import faulthandler#错误处理
+import filecmp#文件比较
+import fileinput#文件输入
+import fnmatch#文件匹配
+import formatter#格式化
+import fpectl#错误处理
+import fpformat#格式化
+import fractions#分数
+import ftplib#ftp
+import functools#函数
+import gc#垃圾回收
+import getopt#命令行参数
+import getpass#获取密码
+import gettext#国际化
+import glob#文件匹配
+import gzip#压缩
+import hashlib#哈希
+import heapq#堆
+import hmac#哈希
+import html#html
+import http#http
+import html.parser#html
+import http.client#http
+import http.cookies#http
+import http.cookiejar#http
+import http.server#http
+import idlelib#国际化
+import importlib#导入
+import inspect#检查
+import io#IO
+import itertools#迭代
+import json#json
+import keyword#关键字
+import linecache#行缓存
+import locale#区域
+import logging#日志
+import lzma#压缩
+import math#数学
+import mimetypes#mime
+import mmap#映射
+import modulefinder#模块
+import msilib#安装
+import msvcrt#控制台
+import multiprocessing#多进程
+import multiprocessing.dummy#多进程
+import multiprocessing.connection#多进程
+import multiprocessing.managers#多进程
+import multiprocessing.pool#多进程
+import multiprocessing.queues#多进程
+import multiprocessing.sharedctypes#多进程
+import multiprocessing.synchronize#多进程
+import netrc#网络
+import nntplib#nntp
+import ntpath#路径
+import nt#系统
+import ntsecuritycon#系统
+import nturl2path#路径
+import nt#系统
+import ntsecuritycon#系统
+import nturl2path#路径
+import nt#系统
+import ntsecuritycon#系统
+import nturl2path#路径
+import oauthlib#oauth
+import operator#运算
+import optparse#命令行参数
+import os#系统  os.path.join(os.path.dirname(__file__), '..')
+import os.path#路径
+import pdb#调试
+import pickle#序列化
+import pickletools#序列化
+import pipes#命令行
+import pkgutil#导入
+import platform#平台
+import plistlib#plist
+import poplib#pop
+import posixpath#路径
+import pprint#打印
+import profile#性能分析
+import pstats#性能分析
+import pty#终端
+import py_compile#编译
+import pyclbr#模块
+import pydoc#文档
+import pyexpat#xml
+import queue#队列
+import quopri#quopri
+import random#随机
+import re#正则
+import reprlib#打印
+import rlcompleter#补全
+import runpy#运行
+import sched#调度
+import secrets#随机
+import select#选择
+import selectors#选择
+import shelve#存储
+import shutil#文件
+import signal#信号
+import site#环境
+import smtpd#smtp
+import smtplib#smtp
+import sndhdr#声音
+import socket#网络
+import socketserver#网络
+import sqlite3#数据库
+import sre_compile#正则
+import sre_constants#正则
+import sre_parse#正则
+import ssl#ssl
+import stat#状态
+import string#字符串#string.ascii_letters
+import subprocess#进程
+import sunau#声音
+import sys#系统
+import tarfile#压缩
+import telnetlib#telnet
+import tempfile#临时文件
+import test#测试
+import textwrap#文本    
+import threading#线程
+import time#时间
+import timeit#性能分析
+import toaiff#声音
+import tokenize#正则
+import token#正则
+import traceback#错误
+import tty#终端
+import turtle#绘图
+import tzlocal#时区
+import tzfile#时区
+import uu#uu
+import uuid#uuid'''
  
      
 
