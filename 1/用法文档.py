@@ -1331,15 +1331,45 @@ print (os.path.join('E:\\Python','demo13.py'))
 print (os.path.split('E:\\vipython\\chap15\\demo13.py'))#windows下的路径分割
 print (os.path.splitdrive('E:/vipython/chap15/demo13.py'))#mac下的路径分割
 print (os.path.splitext ( 'demol3.py'))
+import os 
+print (os.path.basename('E:\\vipython\\chap15\\demo13.py'))# 返回path最后的文件名
+print (os.path.dirname('E:\\vipython\\chap15\\demo13.py'))# 返回path的目录。其实就是把最后一个目录分隔符'\'或斜杠'/'去掉
+print (os.path.commonprefix(['E:\\vipython\\chap15\\demo13.py', 'E:\\vipython\\chap15\\demo13.py']))# 返回path列表中第一个出现的目录前缀
+import os
+path=os.getcwd()# 返回当前工作目录
+lis=os.walk(path)# 返回指定的文件夹包含的文件或文件夹的名字的列表
+print(lis)
+for root,dirs,files in lis:
+    for file in files:
+        if file.endswith('.py'):
+            print(os.path.join(root,file))
+    for dir in dirs:
+        print(os.path.join(root,dir))
 
-     
 
+file=open('c.txt','a')
+#file. write ('hello')
+list=[' java','so', ' python' ]
+file. writelines (list)# 将字符串列表写入文件，每个字符串占一行
+file.close (file)
 
-
-
-
-
-
+file=open( 'a. txt', 'r')
+file.seek (2)# 将文件指针移动到文件的第三个字符
+print (file. read())
+file. close ()# 关闭文件
+file=open('d. txt',' a')
+file.write ('hello')
+file. flush()# 刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件, 而不是被动的等待输出缓冲区写入
+file.write ('world')
+#with open('d. txt',' a') as file: # 可以不用close() 关闭文件   离开with语句块时，会自动调用close()方法
+with open ('/Volumes/系统二/F-drive-214171/music2/陈慧娴 - 千千阙歌.flac','rb')as src_file:# 以二进制读取模式打开文件,with语句自动调用close()方法
+  with open ('/Users/xkg/Desktop/c实况文本演.flac','wb') as target_file:# 以二进制写入模式打开文件
+    '''while True:
+      data=src_file.read(4096)
+      if not data:
+        break
+      target_file.write(data)'''
+    target_file.write (src_file.read())
  
 
 
