@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "davidbwaters.macos-modern-theme"
+        "davidbwaters.macos-modern-theme",
+        "batisteo.vscode-django"
     ]
 }
