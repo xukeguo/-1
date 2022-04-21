@@ -1164,7 +1164,8 @@ import tty#终端
 import turtle#绘图
 import tzlocal#时区
 import tzfile#时区
-import uu#uu
+import urllib#url
+import django#django#django.core.management.base#django.core.management.base
 import uuid#uuid'''
 #用户自定义模块   #import mymodule as mm
 #用户片段  #from mymodule import myfunc

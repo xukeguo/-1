@@ -491,14 +491,14 @@ print(a)
 
 class my:
     def __new__(cls, *args, **kwargs):
-        return super().__new__(    *args, **kwargs)
+        return super().__new__(  cls )
 
     def __init__(self,value,name,age):
         self.value=value
         self.name=name
         self.age=age
-    def my_map(self, value):
-        return self.map(value)
+    def my_map(self, value1):
+        return self.value+5
       
 a=my(1,'a',18)
 print(a.my_map(5))      
@@ -585,23 +585,26 @@ a=A()
 #（like int str or tuple）
 class Inch(float):
     def __new__(cls, arg=0.0):
+        a=12*arg
+        return a
+        return super().__new__(cls, 12 * arg)
         return float.__new__(cls, arg*0.0254)
-b=float(1)
+b=float(1.5)
 
 a=Inch(b)
 c=Inch(a)
 print(c)
 print(a)
 #用在元类，定制类对象
-class MetaClass(type):
-    def __new__(cls, meta,name, bases, attrs):
+class MetaClass(type):#元类
+    def __new__(cls, meta,name, bases, attrs):#meta是元类，name是类名，bases是父类，attrs是属性
         print('__new__')
-        return super(MetaClass,meta).__new__(cls, meta,name, bases, attrs)
-    def __init__(cls,name, bases, attrs):
+        return super(MetaClass,meta).__new__(cls, meta,name, bases, attrs)#返回一个新的类对象
+    def __init__(cls,name, bases, attrs):#name是类名，bases是父类，attrs是属性
         print('__init__')
-        super(MetaClass,cls).__init__(name, bases, attrs)
+        super(MetaClass,cls).__init__(name, bases, attrs)#返回一个新的类对象
 class Meclass(object):
-    __metaclass__=MetaClass
+    __metaclass__=MetaClass#元类
     def foo(self,param):
         print('foo',param)
 p=Meclass()
@@ -792,34 +795,8 @@ print(Inch(12))
 '''用在元类，定制创建类对象
 
 复制代码'''
-class MetaClass(type):
-
-    def __new__(meta, name, bases, dct):
-        print ('-----------------------------------')
-        print ( "Allocating memory for class", name)
-        print (meta)
-        print (bases)
-        print (dct)
-        return super(MetaClass, meta).__new__(meta, name, bases, dct)
-
-    def __init__(cls, name, bases, dct):
-        print '-----------------------------------'
-        print "Initializing class", name
-        print cls
-        print bases
-        print dct
-        super(MetaClass, cls).__init__(name, bases, dct)
 
 
-class Myclass(object):
-    __metaclass__ = MetaClass
-
-    def foo(self, param):
-        print param
-
-
-p = Myclass()
-p.foo("hello")
 
 # -----------------------------------
 # Allocating memory for class Myclass
@@ -838,6 +815,13 @@ p.foo("hello")
 首先想到的是把request也传递过去，在clean方法就可以使用了。
 
 复制代码'''
+#‘’一个比较实际的例子，是在Django admin 表单验证的时候如何访问当前请求request。StackFlow的链接如下： http://stackoverflow.com/questions/1057252/how-do-i-access-the-request-object-or-any-other-variable-in-a-forms-clean-met/6062628#6062628
+
+#首先想到的是把request也传递过去，在clean方法就可以使用了。’‘’
+
+#复制代码‘’‘
+from urllib import request
+from django import forms
 class MyForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request')
@@ -846,17 +830,15 @@ class MyForm(forms.ModelForm):
     def clean(self):
         #这里可以得到self.request的信息
         pass
-'''复制代码
-在平常的view用下面的代码调用：'''
 
 f = MyForm(request.POST, request=request)
-但是在定制ModelAdmin的时候却不行，因为admin只提供get_form这个方法，返回值是类对象，而不是实例对象
+#但是在定制ModelAdmin的时候却不行，因为admin只提供get_form这个方法，返回值是类对象，而不是实例对象
 
-    get_form(self, request, *args, **kwargs):
+    #get_form(self, request, *args, **kwargs):
         # 这行代码是错误的
         # return MyForm(request=request) 
-        return MyForm     # OK
-用__new__方法可以解决这个问题。
+       # return MyForm     # OK
+#用__new__方法可以解决这个问题。
 
 def get_form(self, request, *args, **kwargs):
     class ModelFormMetaClass(MyForm):
@@ -867,9 +849,50 @@ def get_form(self, request, *args, **kwargs):
 那么结果如何呢，add_view的调用代码如下：
 
 复制代码
-def add_view(self, request, form_url='', extra_context=None)"
-    ...
+def add_view(self, request, form_url='', extra_context=None):
+'''    "The 'add' admin view for this model."
+    model = self.model
+    opts = model._meta
+
+    if not self.has_add_permission(request):
+        raise PermissionDenied
+
     ModelForm = self.get_form(request)
+    formsets = []
+    if request.method == 'POST':
+        form = ModelForm(request.POST, request.FILES)
+        if form.is_valid():
+            new_object = self.save_form(request, form, change=False)
+            form_validated = True
+        else:
+            form_validated = False
+            new_object = self.model()
+        prefixes = {}
+        for FormSet, inline in zip(self.get_formsets(request), self.inline_instances):
+            prefix = FormSet.get_default_prefix()
+            prefixes[prefix] = prefixes.get(prefix, 0) + 1
+            if prefixes[prefix] != 1 or not prefix:
+                prefix = "%s-%s" % (prefix, prefixes[prefix])
+            formset = FormSet(data=request.POST, files=request.FILES,
+                              instance=new_object,
+                              save_as_new="_saveasnew" in request.POST,
+                              prefix=prefix, queryset=inline.queryset(request))
+            formsets.append(formset)
+        if all_valid(formsets) and form_validated:
+            self.save_model(request, new_object, form, change=False)
+            form.save_m2m()
+            for formset in formsets:
+                self.save_formset(request, form, formset, change=False)
+
+            self.log_addition(request, new_object)
+            return self.response_add(request, new_object)
+    else:
+        # Prepare the dict of initial data from the request.
+        # We have to special-case M2Ms as a list of comma-separated PKs.
+        initial = dict(request.GET.items())
+        for k in initial:
+            try:'''
+ModelForm = self.get_form(request)
     if request.method == 'POST':
         form = ModelForm(request.POST, request.FILES)
         #可以获取request参数
@@ -878,8 +901,8 @@ def add_view(self, request, form_url='', extra_context=None)"
             pass
         else:
             pass
-    else:
-        ...（计算initial）
+    else:''
+        #'''...（计算initial）'''
         form = ModelForm(initial=initial)
 复制代码
 分析：form = ModelFormMetaClass(request.POST, request.FILES)，按照通常的理解右边应该返回的是ModelFormMetaClass的一个实例，由于重写了__new__函数，没有调用父类函数，而是直接返回了一个带有request参数的MyForm实例，然后调用__init__函数，因此最后ModelFormMetaClass（）返回也是这个实例，而左边也需要的是MyForm的实例对象。因此__new__函数的作用是创建一个实例。
@@ -892,9 +915,7 @@ class A(object):
 print type(A)
 
 结果：
-<type 'type'>
-复制代码
-Python type与objectpython当中的type是所有内置对象或者类的基类型，object是所有类继承的基类，因此int、str、list、tuple等等这些内置的类，这些都是type类的实例对象。因为type也是类，因此type的基类也是object
+<type 'type'>置对象或者类的基类型，object是所有类继承的基类，因此int、str、list、tuple等等这些内置的类，这些都是type类的实例对象。因为type也是类，因此type的基类也是object
 #废__new__的写法
 class person(object):
     def __new__(cls,*args, **kwargs):

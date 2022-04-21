@@ -439,7 +439,29 @@ print(l)
 l3=l+l2
 print(l3)
 
+class a:
+    def __new__(cls, *args,**kwargs):
+        print('new')
+        global a2
+        global a4
+        a4=super().__new__(cls)
+        a2=super().__new__(cls)
+        return a2
+    def __init__(self, a,b):
 
+        self.na=a
+        self.b=b
+    def name(self):
+        print(self.na)
+
+a1=a(3,8)
+a3=a(4,5)
+print(type(a1),type(a2),type(a4))
+print((a2.b))
+print(a2.name())
+
+        
+  
 
 
 
