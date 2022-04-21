@@ -700,7 +700,7 @@ print(a)
 class Student:
     def __init__(self,name,age,address):
         self.name=name
-        self.age=age#私有属性
+        self.__age=age
         self.addr=address
     def study(self):
         print('%s正在学习'%self.name)
@@ -732,13 +732,16 @@ class Student_teacher(Student,Teacher):
         def __new__(cls, *args, **kwargs):
             #类方法
             print('__new__')
-            return super().__new__(cls)
+            return super().__new__(cls)#调用父类的__new__方法,返回父类的实例化对象,交给父类的__init__方法
 
-        def __init__(self,name,age,address):
+        def __init__(self,name,age,address,address2):
             #继承父类的属性
                super().__init__(name,age,address)
+               self.addr2=address2
 stu1=Student('张三',18,'北京')
 stu=Student(9,4,9)
+stu2=Student_teacher('李四',19,'上海','广州')
+print(stu1.whiteage())
 stu.whitename()
 stu.eat()
 stu1.whitename()
