@@ -1365,8 +1365,8 @@ file.write ('world')
 with open ('/Volumes/系统二/F-drive-214171/music2/陈慧娴 - 千千阙歌.flac','rb')as src_file:# 以二进制读取模式打开文件,with语句自动调用close()方法
   with open ('/Users/xkg/Desktop/c实况文本演.flac','wb') as target_file:# 以二进制写入模式打开文件
     '''while True:
-      data=src_file.read(4096)
-      if not data:
+      data=src_file.read(4096)# 以4K为单位读取文件
+      if not data:# 如果没有数据了，就退出循环
         break
       target_file.write(data)'''
     target_file.write (src_file.read())
