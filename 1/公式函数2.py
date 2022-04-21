@@ -406,3 +406,5 @@ def getCircle(p1, p2, p3):
  
 p1, p2, p3 = Point(0, 0), Point(-4, 0), Point(0, -4)
 print(getCircle(p1, p2, p3))
+#
+
