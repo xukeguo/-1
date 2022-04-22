@@ -35,7 +35,8 @@ def main():
     turtle.done()
 main()
 from cmath import cos
-import datetime#时间模块
+import datetime
+from wsgiref.validate import WriteWrapper#时间模块
 def main():#
     print(datetime.datetime.now())#当前时间
 main()
@@ -406,5 +407,49 @@ def getCircle(p1, p2, p3):
  
 p1, p2, p3 = Point(0, 0), Point(-4, 0), Point(0, -4)
 print(getCircle(p1, p2, p3))
-#
+#排序
+#sorted(iterable, key=None, reverse=False)
+#iterable:可迭代对象
+#key:指定排序的关键字，可以是函数，也可以是字段名   
+#reverse:指定是否反向排序
+di={'a':1,'b':4,'c':3,'d':3}
+di1=(sorted(di.items(),key=lambda x:x[1],reverse=True))#按照value值进行排序
+di2=(sorted(di,key=lambda x:di[x],reverse=True))#按照key值进行排序
+print(di1)
 
+a=3 
+b=2
+c=1
+d=4
+e=5
+if a>b:
+    a,b=b,a
+if a>c:
+    a,c=c,a
+if a>d:
+    a,d=d,a
+if a>e:
+    a,e=e,a
+if b>c:
+    b,c=c,b
+if b>d:
+    b,d=d,b
+if b>e:
+    b,e=e,b
+if c>d:
+    c,d=d,c
+if c>e:
+    c,e=e,c
+if d>e:
+    d,e=e,d
+print(a,b,c,d,e)
+
+a=3 
+b=2
+c=1
+d=6
+e=5
+a,b,c,d,e={a,b,c,d,e}#解包赋值 变量个数必须和包内的键值对个数相同
+print(a,b,c,d,e)
+a,b,c,d,e=sorted([a,b,c,d,e],reverse=True)
+print(a,b,c,d,e)
