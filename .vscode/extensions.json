@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "davidbwaters.macos-modern-theme",
-        "batisteo.vscode-django"
+        "batisteo.vscode-django",
+        "aaron-bond.better-comments"
     ]
 }

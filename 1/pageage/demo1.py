@@ -46,9 +46,9 @@ s=sched.scheduler(time.time,time.sleep)
 s.enter(3,1,job)
 s.run()
 
-import sched#一定间隔执行
+import sched#!一定间隔执行
 import time
-if __name__=='__main__':
+if __name__=='__main__':# 只有在当前模块被直接执行时才会执行调用
  def job2():
     print('I am job2') 
     s.enter(3,1,job2)
